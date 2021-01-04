@@ -128,6 +128,9 @@ export default () => {
 ## 自定义选择器(子组件)
 
 ```tsx
+/**
+ * compact: true
+ */
 import React, { useState } from 'react';
 import { createUseStyles } from '@wonder-ui/styles';
 
@@ -140,21 +143,18 @@ const iconPhoto = require('../assets/images/icon-photo.png');
 
 const styles = createUseStyles({
   root: {
-    width: '375px',
     boxSizing: 'border-box',
-    padding: '20px',
-    border: '1px solid #ddd',
     display: 'flex',
   },
   item: {
     flex: 1,
     '&:first-child': {
-      marginRight: '30px',
+      marginRight: '10px',
     },
   },
   children: {
     background: '#e8f1fc',
-    height: '102px',
+    height: '90px',
     position: 'relative',
   },
   img: {
@@ -233,7 +233,7 @@ export default () => {
           onChange={onChangeIdCard}
           mode="cover"
           width="100%"
-          height="102px"
+          height="90px"
           onUpload={onUpload}
         >
           <Flex className={s.children} justify="center">
