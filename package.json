@@ -1,0 +1,66 @@
+{
+  "name": "image-picker-mobile",
+  "version": "1.0.0",
+  "description": "基于react的移动端图片上传组件",
+  "scripts": {
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "npm run build && npm publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "author": "Ecode",
+  "license": "MIT",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yicoding/image-picker-mobile.git"
+  },
+  "keywords": [
+    "react",
+    "react-components",
+    "antd",
+    "antd-mobile",
+    "ant-design-mobile",
+    "image-picker-mobile"
+  ],
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@wonder-ui/styles": "^2.0.0-beta.9",
+    "antd-mobile": "^2.3.4",
+    "classnames": "^2.2.6",
+    "dumi": "^1.0.38",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-wx-images-viewer": "^1.0.6"
+  },
+  "devDependencies": {
+    "@umijs/test": "^3.0.5",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "compression-webpack-plugin": "^6.1.1",
+    "father-build": "^1.17.2",
+    "gh-pages": "^3.0.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "yorkie": "^2.0.0"
+  }
+}
