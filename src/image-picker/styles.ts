@@ -6,6 +6,9 @@ const styles = createStyles({
     display: 'flex',
     flexWrap: 'wrap',
   },
+  justifyContent: {
+    justifyContent: 'space-between',
+  },
   hidden: {
     display: 'none',
   },
@@ -23,6 +26,7 @@ const styles = createStyles({
     height: '100%',
   },
   errorTip: {
+    height: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

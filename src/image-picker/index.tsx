@@ -10,6 +10,7 @@ const noon = () => {};
 
 interface Files {
   url: string; // 图片url
+  preview?: string; // 预览图
   loading?: boolean; // 图片是否加载中
   errorTip?: string; // 错误提示
   name?: string; // 图片名称
@@ -31,7 +32,7 @@ interface ImagePickerProps {
   size?: number; // 图片大小限制，单位: M
   onFail?: (e: any) => any;
   resize?: boolean;
-
+  onGetPreviewUrl?: (index: number) => Promise<string>; // 获取预览图片方法
   classes?: Partial<ClassKeysOfStyles<typeof styles>>;
   // classes?: Record<'root' | 'input' | 'imgBox', any>
 }
@@ -52,6 +53,7 @@ const ImagePicker = (props: ImagePickerProps) => {
     size,
     onUpload,
     onFail = noon,
+    onGetPreviewUrl,
     resize,
   } = props;
 
@@ -61,7 +63,9 @@ const ImagePicker = (props: ImagePickerProps) => {
 
   const urlList: string[] = [];
   refFilesList.current.forEach((item: Files) => {
-    if (item.url) {
+    if (item.preview) {
+      urlList.push(item.preview);
+    } else if (item.url) {
       urlList.push(item.url);
     }
   });
@@ -98,7 +102,7 @@ const ImagePicker = (props: ImagePickerProps) => {
           reject(`Fail to get the ${index} image`);
           return;
         }
-        resolve({ url: dataURL, file });
+        resolve({ file, url: dataURL });
       };
       reader.readAsDataURL(file);
     });
@@ -127,7 +131,7 @@ const ImagePicker = (props: ImagePickerProps) => {
     const index = refFilesList.current.length;
     Promise.all(imageParsePromiseList)
       .then((imageItems: any[]) => {
-        if (onUpload) {
+        if (typeof onUpload === 'function') {
           imageItems.forEach((item: Files) => (item.loading = true));
         }
         const filterList = imageItems.filter((item: Files) => {
@@ -139,33 +143,24 @@ const ImagePicker = (props: ImagePickerProps) => {
         });
         refFilesList.current = refFilesList.current.concat(filterList);
         onChange(refFilesList.current);
-        if (onUpload) {
+        if (typeof onUpload === 'function') {
           for (let i = 0; i < refFilesList.current.length; i++) {
             const item = refFilesList.current[i];
             if (i >= index) {
-              onUpload(item.file)
+              onUpload(item)
                 .then((res: any) => {
-                  refFilesList.current[i] = Object.assign(
-                    {},
-                    refFilesList.current[i],
-                    res,
-                    { loading: false },
-                  );
+                  Object.assign(item, res, { loading: false });
                   refFilesList.current = [...refFilesList.current];
-                  setTimeout(() => {
-                    onChange(refFilesList.current);
-                  }, 10);
+                  setTimeout(() => onChange(refFilesList.current), 10);
                 })
                 .catch(err => {
-                  refFilesList.current[i] = {
+                  Object.assign(item, {
                     url: '',
                     loading: false,
-                    errorTip: err || '上传失败，请重试',
-                  };
+                    errorTip: err || '上传失败',
+                  });
                   refFilesList.current = [...refFilesList.current];
-                  setTimeout(() => {
-                    onChange(refFilesList.current);
-                  }, 10);
+                  setTimeout(() => onChange(refFilesList.current), 10);
                 });
             }
           }
@@ -202,9 +197,19 @@ const ImagePicker = (props: ImagePickerProps) => {
   };
 
   // 预览图片
-  const preview = (index: number) => {
-    console.log('index', index);
-    setIndex(index);
+  const onPreview = async (currentIndex: number, index: number) => {
+    if (
+      !refFilesList.current[index].preview &&
+      typeof onGetPreviewUrl === 'function'
+    ) {
+      // 加载大图
+      const preview: string = await onGetPreviewUrl(index);
+      refFilesList.current[index].preview = preview;
+      refFilesList.current = [...refFilesList.current];
+      onChange(refFilesList.current);
+    }
+    console.log('currentIndex', currentIndex);
+    setIndex(currentIndex);
     onClose();
   };
 
@@ -224,10 +229,30 @@ const ImagePicker = (props: ImagePickerProps) => {
     'scale-down' = 'scale-down',
   }
 
+  // 计算高度
   const calcHeight = resize ? realHeight : height;
 
+  // 定义占位元素个数
+  let spaceNum = 0;
+  if (resize) {
+    const rowNum = Math.floor(100 / parseFloat(width));
+    if (filesList && filesList.length > 0 && rowNum > 1) {
+      const restNum = filesList.length % rowNum;
+      if (restNum > 0 && restNum < rowNum - 1) {
+        spaceNum = rowNum - restNum - 1;
+      }
+    }
+  }
+
+  // parent样式
+  const classParent = classnames(s.parent, {
+    [s.noMargin as string]: max === 1 || filesList.length < 1 || resize,
+  });
+
   return (
-    <div className={s.root}>
+    <div
+      className={classnames(s.root, { [s.justifyContent as string]: resize })}
+    >
       <input
         className={s.hidden}
         ref={ref}
@@ -251,28 +276,26 @@ const ImagePicker = (props: ImagePickerProps) => {
             }
             const currentIndex = index - errorNum;
             return (
-              <div
-                key={index}
-                className={classnames(s.parent, {
-                  [s.noMargin as string]: max === 1 || filesList.length < 1,
-                })}
-                style={{ width }}
-              >
-                <div className={s.imgBox} style={{ height: calcHeight }}>
+              <div key={index} className={classParent} style={{ width }}>
+                <div
+                  className={classnames(
+                    s.imgBox,
+                    ...config.map(todo => {
+                      return s[todo as configProp];
+                    }),
+                  )}
+                  style={{ height: calcHeight }}
+                >
                   {url && (
                     <img
                       alt=""
                       className={s.img}
                       src={url}
                       style={{ objectFit: mode as objectFitProp }}
-                      onClick={() => preview(currentIndex)}
+                      onClick={() => onPreview(currentIndex, index)}
                     />
                   )}
-                  {errorTip && (
-                    <div className={s.errorTip} style={{ height: calcHeight }}>
-                      {errorTip}
-                    </div>
-                  )}
+                  {errorTip && <div className={s.errorTip}>{errorTip}</div>}
                   <i className={s.iconRemove} onClick={() => onRemove(index)} />
                   {loading && (
                     <div className={s.loadingBox}>
@@ -287,9 +310,7 @@ const ImagePicker = (props: ImagePickerProps) => {
         })}
       {validLength < max && (
         <div
-          className={classnames(s.parent, {
-            [s.noMargin as string]: max === 1 || filesList.length < 1,
-          })}
+          className={classParent}
           style={{ width }}
           ref={refDom}
           onClick={inputClick}
@@ -313,6 +334,10 @@ const ImagePicker = (props: ImagePickerProps) => {
           )}
         </div>
       )}
+      {spaceNum > 0 &&
+        new Array(spaceNum).fill(spaceNum).map((item, index) => {
+          return <div key={index} className={classParent} style={{ width }} />;
+        })}
       {isOpen && (
         <WxImageViewer onClose={onClose} index={index} urls={urlList} />
       )}

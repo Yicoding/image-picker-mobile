@@ -18,8 +18,8 @@ export default () => {
 
   interface Files {
     url: string; // 图片url
-    loading: boolean; // 图片是否加载中
-    errorTip?: string; // 错误提示
+    // loading: boolean; // 图片是否加载中
+    // errorTip?: string; // 错误提示
     name?: string; // 图片名称
     [index: string]: any;
   }
@@ -27,7 +27,6 @@ export default () => {
   // 数组改变
   const onChange = (arr: Array<Files>) => {
     console.log('onChange', arr);
-    arr.forEach(item => (item.name = '示例图'));
     setFilesList(arr);
   };
 
@@ -108,7 +107,7 @@ export default () => {
           // 成功
           return resolve({ fssid: rate.toString().slice(-6) });
         }
-        reject('上传失败，请重试~');
+        reject('上传失败');
       }, 3000);
     });
   };
@@ -201,7 +200,7 @@ export default () => {
           // 成功
           return resolve({ fssid: rate.toString().slice(-6) });
         }
-        reject('上传失败，请重试~');
+        reject('上传失败');
       }, 3000);
     });
   };
@@ -263,11 +262,12 @@ export default () => {
 };
 ```
 
-## 多选+高度与宽度相等
+## 多选+高度与宽度相等+预览图
 
 ```tsx
 import React, { useState } from 'react';
 
+import { Toast } from 'antd-mobile';
 import { ImagePicker } from 'image-picker-mobile';
 
 export default () => {
@@ -289,7 +289,8 @@ export default () => {
   };
 
   // 实时上传方法
-  const onUpload = () => {
+  const onUpload = item => {
+    console.log('item', item);
     return new Promise((resolve, reject) => {
       const rate = Math.random();
       setTimeout(() => {
@@ -297,8 +298,20 @@ export default () => {
           // 成功
           return resolve({ fssid: rate.toString().slice(-6) });
         }
-        reject('上传失败，请重试~');
+        reject('上传失败');
       }, 3000);
+    });
+  };
+
+  // 查看大图方法
+  const onGetPreviewUrl = index => {
+    return new Promise((resolve, reject) => {
+      const rate = Math.random();
+      Toast.loading('Loading...');
+      setTimeout(() => {
+        Toast.hide();
+        resolve(filesList[index].url);
+      }, 1000);
     });
   };
 
@@ -312,6 +325,7 @@ export default () => {
       onUpload={onUpload}
       resize
       width="18%"
+      onGetPreviewUrl={onGetPreviewUrl}
     />
   );
 };
@@ -323,12 +337,13 @@ export default () => {
 
 | 属性      | 说明                                                                                                                                                                  | 类型                         | 默认值          |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | --------------- |
-| filesList | 图片文件数组,元素为对象,包含属性 `url`: 图片路径(`必选`), `loading`: 图片加载状态, `errorTip`: 图片加载失败提示文案,`name`: 图片底部显示的名称,以及业务需要的其它属性 | `Array`                      | `[]`            |
+| filesList | 图片文件数组,元素为对象,包含属性 `url`: 图片路径(`必选`), `loading`: 图片加载状态, `errorTip`: 图片加载失败提示文案,`name`: 图片底部显示的名称;以及业务需要的其它属性 | `Array`                      | `[]`            |
 | max       | 最大上传文件数量                                                                                                                                                      | `number`                     | `1`             |
 | onChange  | files 值发生变化触发的回调函数                                                                                                                                        | `(arr: Array<Files>) => any` | -               |
 | onUpload  | 图片实时上传方法                                                                                                                                                      | `(file) => Promise`          | -               |
 | accept    | 图片类型                                                                                                                                                              | `string`                     | `image/*`       |
 | multiple  | 是否多选                                                                                                                                                              | `boolean`                    | `false`         |
+| resize    | 高度是否根据宽度计算,为`true`时，`width`需要填写百分比                                                                                                                | `boolean`                    | `false`         |
 | width     | 图片宽度                                                                                                                                                              | `string`                     | `80px`          |
 | height    | 图片高度                                                                                                                                                              | `string`                     | `80px`          |
 | config    | 图片的额外扩展项,`defaultBorder`: 显示实线边框, `defaultBackGround`: 显示默认背景色, `defaultDashed`: 显示虚线边框                                                    | `string[]`                   | `defaultBorder` |
