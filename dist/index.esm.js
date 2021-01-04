@@ -783,6 +783,6 @@ var ImagePicker = function ImagePicker(props) {
   );
 };
 
-var index = withStyles(styles)(ImagePicker);
+var ImagePicker$1 = withStyles(styles)(ImagePicker);
 
-export { index as ImagePicker };
+export default ImagePicker$1;

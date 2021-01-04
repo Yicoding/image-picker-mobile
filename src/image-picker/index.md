@@ -11,15 +11,15 @@ group:
 import React, { useState } from 'react';
 
 import { WhiteSpace, Flex, WingBlank } from 'antd-mobile';
-import { ImagePicker } from 'image-picker-mobile';
+import ImagePicker from 'image-picker-mobile';
 
 export default () => {
   const [filesList, setFilesList] = useState([]);
 
   interface Files {
     url: string; // 图片url
-    // loading: boolean; // 图片是否加载中
-    // errorTip?: string; // 错误提示
+    loading: boolean; // 图片是否加载中
+    errorTip?: string; // 错误提示
     name?: string; // 图片名称
     [index: string]: any;
   }
@@ -78,7 +78,7 @@ export default () => {
 ```tsx
 import React, { useState } from 'react';
 
-import { ImagePicker } from 'image-picker-mobile';
+import ImagePicker from 'image-picker-mobile';
 
 export default () => {
   const [filesList, setFilesList] = useState([]);
@@ -135,7 +135,7 @@ import React, { useState } from 'react';
 import { createUseStyles } from '@wonder-ui/styles';
 
 import { Flex, WingBlank } from 'antd-mobile';
-import { ImagePicker } from 'image-picker-mobile';
+import ImagePicker from 'image-picker-mobile';
 
 const iconIdCard = require('../assets/images/icon-idcard.png');
 const iconIdCardBack = require('../assets/images/icon-idcard-back.png');
@@ -268,7 +268,7 @@ export default () => {
 import React, { useState } from 'react';
 
 import { Toast } from 'antd-mobile';
-import { ImagePicker } from 'image-picker-mobile';
+import ImagePicker from 'image-picker-mobile';
 
 export default () => {
   const [filesList, setFilesList] = useState([]);

@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 require('antd-mobile/lib/toast/style/css');
 var _Toast = require('antd-mobile/lib/toast');
 var React = require('react');
@@ -799,6 +797,6 @@ var ImagePicker = function ImagePicker(props) {
   );
 };
 
-var index = styles$1.withStyles(styles)(ImagePicker);
+var ImagePicker$1 = styles$1.withStyles(styles)(ImagePicker);
 
-exports.ImagePicker = index;
+module.exports = ImagePicker$1;

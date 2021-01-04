@@ -1,1 +1,3 @@
-export { default as ImagePicker } from './image-picker';
+import ImagePicker from './image-picker';
+
+export default ImagePicker;
