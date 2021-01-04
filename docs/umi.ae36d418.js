@@ -94,7 +94,7 @@
     'use strict';
     t.r(n),
       t.d(n, 'ImagePicker', function() {
-        return C;
+        return x;
       });
     var a = t('o0o1'),
       r = t.n(a),
@@ -232,28 +232,29 @@
           A = void 0 === E ? 'image/*' : E,
           v = e.multiple,
           b = e.width,
-          C = void 0 === b ? '80px' : b,
-          x = e.height,
-          y = void 0 === x ? '80px' : x,
+          x = void 0 === b ? '80px' : b,
+          C = e.height,
+          y = void 0 === C ? '80px' : C,
           P = e.config,
           I = void 0 === P ? ['defaultBorder'] : P,
           w = e.children,
           B = e.mode,
           j = void 0 === B ? 'fill' : B,
           S = e.size,
-          L = e.onUpload,
-          N = e.onFail,
-          O = void 0 === N ? k : N,
-          D = e.onGetPreviewUrl,
-          M = e.resize,
-          T = Object(s['useRef'])(null),
+          L = e.disabledPreview,
+          N = e.onUpload,
+          O = e.onFail,
+          D = void 0 === O ? k : O,
+          M = e.onGetPreviewUrl,
+          T = e.resize,
           U = Object(s['useRef'])(null),
-          z = Object(s['useRef'])(t),
-          R = [];
-        z.current.forEach(e => {
-          e.preview ? R.push(e.preview) : e.url && R.push(e.url);
+          z = Object(s['useRef'])(null),
+          R = Object(s['useRef'])(t),
+          F = [];
+        R.current.forEach(e => {
+          e.preview ? F.push(e.preview) : e.url && F.push(e.url);
         });
-        var F = Object(s['useMemo'])(() => {
+        var J = Object(s['useMemo'])(() => {
             for (var e = 0, n = 0; n < t.length; n++) {
               var a = t[n],
                 r = a.url,
@@ -262,25 +263,25 @@
             }
             return e;
           }, [t]),
-          J = Object(s['useState'])(!1),
-          Q = Object(c['default'])(J, 2),
-          q = Q[0],
-          X = Q[1],
-          H = Object(s['useState'])(0),
-          V = Object(c['default'])(H, 2),
-          K = V[0],
-          W = V[1],
-          Y = Object(s['useState'])(''),
-          G = Object(c['default'])(Y, 2),
-          Z = G[0],
-          _ = G[1];
+          Q = Object(s['useState'])(!1),
+          q = Object(c['default'])(Q, 2),
+          X = q[0],
+          H = q[1],
+          V = Object(s['useState'])(0),
+          K = Object(c['default'])(V, 2),
+          W = K[0],
+          Y = K[1],
+          G = Object(s['useState'])(''),
+          Z = Object(c['default'])(G, 2),
+          _ = Z[0],
+          $ = Z[1];
         Object(s['useEffect'])(() => {
-          var e = getComputedStyle(U.current).width;
-          _(e);
+          var e = getComputedStyle(z.current).width;
+          $(e);
         }, []);
-        var $,
-          ee,
-          ne = (e, n) =>
+        var ee,
+          ne,
+          te = (e, n) =>
             new Promise((t, a) => {
               var r = new FileReader();
               (r.onload = r => {
@@ -291,11 +292,11 @@
               }),
                 r.readAsDataURL(e);
             }),
-          te = e => {
+          ae = e => {
             var n = e.target,
               t = n.files;
             if (!t || !t.length) return (n.value = '');
-            var a = u - F;
+            var a = u - J;
             t.length > a &&
               o.a.info(
                 '\u56fe\u7247\u6700\u591a\u4e0d\u8d85\u8fc7'.concat(
@@ -308,12 +309,12 @@
               i < r.length;
               i++
             )
-              l.push(ne(r[i], i));
-            z.current = z.current.filter(e => e.url || e.errorTip);
-            var c = z.current.length;
+              l.push(te(r[i], i));
+            R.current = R.current.filter(e => e.url || e.errorTip);
+            var c = R.current.length;
             Promise.all(l)
               .then(e => {
-                'function' === typeof L && e.forEach(e => (e.loading = !0));
+                'function' === typeof N && e.forEach(e => (e.loading = !0));
                 var t = e.filter(e =>
                   S && e.file.size > 1024 * S * 1024
                     ? o.a.info(
@@ -325,19 +326,19 @@
                     : e,
                 );
                 if (
-                  ((z.current = z.current.concat(t)),
-                  h(z.current),
-                  'function' === typeof L)
+                  ((R.current = R.current.concat(t)),
+                  h(R.current),
+                  'function' === typeof N)
                 )
                   for (
                     var a = function(e) {
-                        var n = z.current[e];
+                        var n = R.current[e];
                         e >= c &&
-                          L(n)
+                          N(n)
                             .then(e => {
                               Object.assign(n, e, { loading: !1 }),
-                                (z.current = [...z.current]),
-                                setTimeout(() => h(z.current), 10);
+                                (R.current = [...R.current]),
+                                setTimeout(() => h(R.current), 10);
                             })
                             .catch(e => {
                               Object.assign(n, {
@@ -345,27 +346,27 @@
                                 loading: !1,
                                 errorTip: e || '\u4e0a\u4f20\u5931\u8d25',
                               }),
-                                (z.current = [...z.current]),
-                                setTimeout(() => h(z.current), 10);
+                                (R.current = [...R.current]),
+                                setTimeout(() => h(R.current), 10);
                             });
                       },
                       r = 0;
-                    r < z.current.length;
+                    r < R.current.length;
                     r++
                   )
                     a(r);
                 n.value = '';
               })
               .catch(e => {
-                O(e), (n.value = '');
+                D(e), (n.value = '');
               });
           },
-          ae = () => {
-            T && T.current && T.current.click();
+          re = () => {
+            U && U.current && U.current.click();
           },
-          re = e => {
-            for (var n = !0, t = 0; t < z.current.length; t++) {
-              var a = z.current[t].loading;
+          le = e => {
+            for (var n = !0, t = 0; t < R.current.length; t++) {
+              var a = R.current[t].loading;
               if (a) {
                 n = !1;
                 break;
@@ -375,9 +376,9 @@
               return o.a.info(
                 '\u56fe\u7247\u4e0a\u4f20\u4e2d\uff0c\u8bf7\u7a0d\u540e\u64cd\u4f5c',
               );
-            z.current.splice(e, 1), (z.current = [...z.current]), h(z.current);
+            R.current.splice(e, 1), (R.current = [...R.current]), h(R.current);
           },
-          le = (function() {
+          ie = (function() {
             var e = Object(l['a'])(
               r.a.mark(function e(n, t) {
                 var a;
@@ -385,19 +386,25 @@
                   while (1)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        if (z.current[t].preview || 'function' !== typeof D) {
-                          e.next = 7;
+                        if (!L) {
+                          e.next = 2;
                           break;
                         }
-                        return (e.next = 3), D(t);
-                      case 3:
+                        return e.abrupt('return');
+                      case 2:
+                        if (R.current[t].preview || 'function' !== typeof M) {
+                          e.next = 9;
+                          break;
+                        }
+                        return (e.next = 5), M(t);
+                      case 5:
                         (a = e.sent),
-                          (z.current[t].preview = a),
-                          (z.current = [...z.current]),
-                          h(z.current);
-                      case 7:
-                        W(n), ie();
+                          (R.current[t].preview = a),
+                          (R.current = [...R.current]),
+                          h(R.current);
                       case 9:
+                        Y(n), oe();
+                      case 11:
                       case 'end':
                         return e.stop();
                     }
@@ -408,38 +415,38 @@
               return e.apply(this, arguments);
             };
           })(),
-          ie = () => X(e => !e);
+          oe = () => H(e => !e);
         (function(e) {
           (e['defaultBorder'] = 'defaultBorder'),
             (e['defaultBackGround'] = 'defaultBackGround'),
             (e['defaultDashed'] = 'defaultDashed');
-        })($ || ($ = {})),
+        })(ee || (ee = {})),
           (function(e) {
             (e['fill'] = 'fill'),
               (e['cover'] = 'cover'),
               (e['contain'] = 'contain'),
               (e['scale-down'] = 'scale-down');
-          })(ee || (ee = {}));
-        var oe = M ? Z : y,
-          ce = 0;
-        if (M) {
-          var se = Math.floor(100 / parseFloat(C));
-          if (t && t.length > 0 && se > 1) {
-            var de = t.length % se;
-            de > 0 && de < se - 1 && (ce = se - de - 1);
+          })(ne || (ne = {}));
+        var ce = T ? _ : y,
+          se = 0;
+        if (T) {
+          var de = Math.floor(100 / parseFloat(x));
+          if (t && t.length > 0 && de > 1) {
+            var me = t.length % de;
+            me > 0 && me < de - 1 && (se = de - me - 1);
           }
         }
-        var me = f()(i.parent, { [i.noMargin]: 1 === u || t.length < 1 || M });
+        var ue = f()(i.parent, { [i.noMargin]: 1 === u || t.length < 1 || T });
         return d.a.createElement(
           'div',
-          { className: f()(i.root, { [i.justifyContent]: M }) },
+          { className: f()(i.root, { [i.justifyContent]: T }) },
           d.a.createElement('input', {
             className: i.hidden,
-            ref: T,
+            ref: U,
             type: 'file',
             accept: A,
             multiple: v,
-            onChange: te,
+            onChange: ae,
           }),
           t &&
             t.length > 0 &&
@@ -460,12 +467,12 @@
                 var g = n - s;
                 return d.a.createElement(
                   'div',
-                  { key: n, className: me, style: { width: C } },
+                  { key: n, className: ue, style: { width: x } },
                   d.a.createElement(
                     'div',
                     {
                       className: f()(i.imgBox, ...I.map(e => i[e])),
-                      style: { height: oe },
+                      style: { height: ce },
                     },
                     a &&
                       d.a.createElement('img', {
@@ -473,12 +480,12 @@
                         className: i.img,
                         src: a,
                         style: { objectFit: j },
-                        onClick: () => le(g, n),
+                        onClick: () => ie(g, n),
                       }),
                     o && d.a.createElement('div', { className: i.errorTip }, o),
                     d.a.createElement('i', {
                       className: i.iconRemove,
-                      onClick: () => re(n),
+                      onClick: () => le(n),
                     }),
                     r &&
                       d.a.createElement(
@@ -491,13 +498,13 @@
                 );
               }
             }),
-          F < u &&
+          J < u &&
             d.a.createElement(
               'div',
-              { className: me, style: { width: C }, ref: U, onClick: ae },
+              { className: ue, style: { width: x }, ref: z, onClick: re },
               w ||
                 d.a.createElement('div', {
-                  style: { height: oe },
+                  style: { height: ce },
                   className: f()(i.childrenEle, [...I.map(e => i[e])]),
                 }),
               1 === u &&
@@ -505,24 +512,24 @@
                 t[0].name &&
                 d.a.createElement(
                   'div',
-                  { className: i.name, style: { width: C } },
+                  { className: i.name, style: { width: x } },
                   t[0].name,
                 ),
             ),
-          ce > 0 &&
-            new Array(ce)
-              .fill(ce)
+          se > 0 &&
+            new Array(se)
+              .fill(se)
               .map((e, n) =>
                 d.a.createElement('div', {
                   key: n,
-                  className: me,
-                  style: { width: C },
+                  className: ue,
+                  style: { width: x },
                 }),
               ),
-          q && d.a.createElement(p.a, { onClose: ie, index: K, urls: R }),
+          X && d.a.createElement(p.a, { onClose: oe, index: W, urls: F }),
         );
       },
-      C = Object(m['withStyles'])(v)(b);
+      x = Object(m['withStyles'])(v)(b);
   },
   '9Ihz': function(e, n) {},
   '9kvl': function(e, n, t) {
@@ -1034,7 +1041,7 @@
               CSSInDependencies: ['antd-mobile/dist/antd-mobile.css'],
               dependencies: {
                 'antd-mobile': '2.3.4',
-                'image-picker-mobile': '1.0.0',
+                'image-picker-mobile': '1.0.1',
               },
               files: {},
             },
@@ -1069,7 +1076,7 @@
                   "import React, { useState } from 'react';\nimport { ImagePicker } from 'image-picker-mobile';\n\nexport default () => {\n  const [filesList, setFilesList] = useState([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = arr => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setFilesList(arr);\n  }; // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n\n  const onUpload = () =>\n    new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({\n            fssid: rate.toString().slice(-6),\n          });\n        }\n\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n    />\n  );\n};\n",
               },
             },
-            { dependencies: { 'image-picker-mobile': '1.0.0' }, files: {} },
+            { dependencies: { 'image-picker-mobile': '1.0.1' }, files: {} },
           ),
           l.a.createElement(s, null),
         ),
@@ -1107,7 +1114,7 @@
                 'antd-mobile': '2.3.4',
                 react: '>=16.8.0',
                 '@wonder-ui/styles': '2.0.0-beta.9',
-                'image-picker-mobile': '1.0.0',
+                'image-picker-mobile': '1.0.1',
               },
               files: {},
             },
@@ -1141,7 +1148,7 @@
             {
               source: {
                 tsx:
-                  "import React, { useState } from 'react';\n\nimport { Toast } from 'antd-mobile';\nimport { ImagePicker } from 'image-picker-mobile';\n\nexport default () => {\n  const [filesList, setFilesList] = useState([]);\n\n  interface Files {\n    url: string; // \u56fe\u7247url\n    loading: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n    errorTip?: string; // \u9519\u8bef\u63d0\u793a\n    name?: string; // \u56fe\u7247\u540d\u79f0\n    [index: string]: any;\n  }\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setFilesList(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item) => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n  const onGetPreviewUrl = (index) => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(filesList[index].url);\n      }, 1000);\n    });\n  }\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"18%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};",
+                  "import React, { useState } from 'react';\n\nimport { Toast } from 'antd-mobile';\nimport { ImagePicker } from 'image-picker-mobile';\n\nexport default () => {\n  const [filesList, setFilesList] = useState([]);\n\n  interface Files {\n    url: string; // \u56fe\u7247url\n    loading: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n    errorTip?: string; // \u9519\u8bef\u63d0\u793a\n    name?: string; // \u56fe\u7247\u540d\u79f0\n    [index: string]: any;\n  }\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setFilesList(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = item => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n  const onGetPreviewUrl = index => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(filesList[index].url);\n      }, 1000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"18%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};",
                 jsx:
                   "import React, { useState } from 'react';\nimport { Toast } from 'antd-mobile';\nimport { ImagePicker } from 'image-picker-mobile';\n\nexport default () => {\n  const [filesList, setFilesList] = useState([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = arr => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setFilesList(arr);\n  }; // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n\n  const onUpload = item => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({\n            fssid: rate.toString().slice(-6),\n          });\n        }\n\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  }; // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n\n  const onGetPreviewUrl = index =>\n    new Promise((resolve, reject) => {\n      const rate = Math.random();\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(filesList[index].url);\n      }, 1000);\n    });\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"18%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};\n",
               },
@@ -1150,7 +1157,7 @@
               CSSInDependencies: ['antd-mobile/dist/antd-mobile.css'],
               dependencies: {
                 'antd-mobile': '2.3.4',
-                'image-picker-mobile': '1.0.0',
+                'image-picker-mobile': '1.0.1',
               },
               files: {},
             },
@@ -1412,6 +1419,26 @@
                   'td',
                   null,
                   l.a.createElement('code', null, 'default'),
+                ),
+              ),
+              l.a.createElement(
+                'tr',
+                null,
+                l.a.createElement('td', null, 'disabledPreview'),
+                l.a.createElement(
+                  'td',
+                  null,
+                  '\u662f\u5426\u7981\u7528\u9884\u89c8\u56fe\u7247',
+                ),
+                l.a.createElement(
+                  'td',
+                  null,
+                  l.a.createElement('code', null, 'boolean'),
+                ),
+                l.a.createElement(
+                  'td',
+                  null,
+                  l.a.createElement('code', null, 'false'),
                 ),
               ),
               l.a.createElement(
@@ -1723,7 +1750,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/image-picker/index.md',
-                updatedTime: 1609724702e3,
+                updatedTime: 1609752234e3,
                 group: {
                   title: 'ImagePicker \u56fe\u7247\u9009\u62e9\u5668',
                   path: '/image-picker',

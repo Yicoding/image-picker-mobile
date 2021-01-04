@@ -305,6 +305,7 @@ var ImagePicker = function ImagePicker(props) {
     _props$mode = props.mode,
     mode = _props$mode === void 0 ? 'fill' : _props$mode,
     size = props.size,
+    disabledPreview = props.disabledPreview,
     onUpload = props.onUpload,
     _props$onFail = props.onFail,
     onFail = _props$onFail === void 0 ? noon : _props$onFail,
@@ -519,31 +520,39 @@ var ImagePicker = function ImagePicker(props) {
           while (1) {
             switch ((_context.prev = _context.next)) {
               case 0:
+                if (!disabledPreview) {
+                  _context.next = 2;
+                  break;
+                }
+
+                return _context.abrupt('return');
+
+              case 2:
                 if (
                   !(
                     !refFilesList.current[index].preview &&
                     typeof onGetPreviewUrl === 'function'
                   )
                 ) {
-                  _context.next = 7;
+                  _context.next = 9;
                   break;
                 }
 
-                _context.next = 3;
+                _context.next = 5;
                 return onGetPreviewUrl(index);
 
-              case 3:
+              case 5:
                 preview = _context.sent;
                 refFilesList.current[index].preview = preview;
                 refFilesList.current = _toConsumableArray(refFilesList.current);
                 onChange(refFilesList.current);
 
-              case 7:
+              case 9:
                 console.log('currentIndex', currentIndex);
                 setIndex(currentIndex);
                 onClose();
 
-              case 10:
+              case 12:
               case 'end':
                 return _context.stop();
             }

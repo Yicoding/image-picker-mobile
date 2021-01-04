@@ -31,7 +31,8 @@ interface ImagePickerProps {
   mode?: string; // 图片裁切类型, fill, cover, contain, scale-down
   size?: number; // 图片大小限制，单位: M
   onFail?: (e: any) => any;
-  resize?: boolean;
+  resize?: boolean; // 高度是否根据宽度计算
+  disabledPreview?: boolean; // 是否禁用预览图片
   onGetPreviewUrl?: (index: number) => Promise<string>; // 获取预览图片方法
   classes?: Partial<ClassKeysOfStyles<typeof styles>>;
   // classes?: Record<'root' | 'input' | 'imgBox', any>
@@ -51,6 +52,7 @@ const ImagePicker = (props: ImagePickerProps) => {
     children,
     mode = 'fill',
     size,
+    disabledPreview,
     onUpload,
     onFail = noon,
     onGetPreviewUrl,
@@ -198,6 +200,7 @@ const ImagePicker = (props: ImagePickerProps) => {
 
   // 预览图片
   const onPreview = async (currentIndex: number, index: number) => {
+    if (disabledPreview) return;
     if (
       !refFilesList.current[index].preview &&
       typeof onGetPreviewUrl === 'function'

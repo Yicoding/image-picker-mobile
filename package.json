@@ -1,6 +1,6 @@
 {
   "name": "image-picker-mobile",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于react的移动端图片上传组件",
   "scripts": {
     "start": "dumi dev",
@@ -11,7 +11,8 @@
     "release": "npm run build && npm publish",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
+    "test:coverage": "umi-test --coverage",
+    "complete": "npm run docs:build && npm run release"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
