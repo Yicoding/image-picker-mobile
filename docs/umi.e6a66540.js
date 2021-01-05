@@ -1,23 +1,23 @@
 (function(e) {
   function n(n) {
     for (
-      var a, i, o = n[0], c = n[1], u = n[2], s = 0, m = [];
-      s < o.length;
-      s++
+      var a, i, c = n[0], o = n[1], s = n[2], m = 0, u = [];
+      m < c.length;
+      m++
     )
-      (i = o[s]),
-        Object.prototype.hasOwnProperty.call(r, i) && r[i] && m.push(r[i][0]),
+      (i = c[m]),
+        Object.prototype.hasOwnProperty.call(r, i) && r[i] && u.push(r[i][0]),
         (r[i] = 0);
-    for (a in c) Object.prototype.hasOwnProperty.call(c, a) && (e[a] = c[a]);
+    for (a in o) Object.prototype.hasOwnProperty.call(o, a) && (e[a] = o[a]);
     d && d(n);
-    while (m.length) m.shift()();
-    return l.push.apply(l, u || []), t();
+    while (u.length) u.shift()();
+    return l.push.apply(l, s || []), t();
   }
   function t() {
     for (var e, n = 0; n < l.length; n++) {
-      for (var t = l[n], a = !0, o = 1; o < t.length; o++) {
-        var c = t[o];
-        0 !== r[c] && (a = !1);
+      for (var t = l[n], a = !0, c = 1; c < t.length; c++) {
+        var o = t[c];
+        0 !== r[o] && (a = !1);
       }
       a && (l.splice(n--, 1), (e = i((i.s = t[0]))));
     }
@@ -76,11 +76,11 @@
       return Object.prototype.hasOwnProperty.call(e, n);
     }),
     (i.p = 'https://yicoding.github.io/image-picker-mobile/');
-  var o = (window['webpackJsonp'] = window['webpackJsonp'] || []),
-    c = o.push.bind(o);
-  (o.push = n), (o = o.slice());
-  for (var u = 0; u < o.length; u++) n(o[u]);
-  var d = c;
+  var c = (window['webpackJsonp'] = window['webpackJsonp'] || []),
+    o = c.push.bind(c);
+  (c.push = n), (c = c.slice());
+  for (var s = 0; s < c.length; s++) n(c[s]);
+  var d = o;
   l.push([0, 1]), t();
 })({
   0: function(e, n, t) {
@@ -92,25 +92,24 @@
   },
   '2YZa': function(e, n, t) {
     'use strict';
-    t.r(n);
     var a = t('o0o1'),
       r = t.n(a),
       l = t('HaE+'),
       i = (t('TttT'), t('Kl5d')),
-      o = t.n(i),
-      c = t('ODXe'),
-      u = t('q1tI'),
-      d = t.n(u),
-      s = t('Wm/2'),
-      m = t('TSYQ'),
-      f = t.n(m),
-      p = t('U0F3'),
-      g = t.n(p),
+      c = t.n(i),
+      o = t('ODXe'),
+      s = t('q1tI'),
+      d = t.n(s),
+      m = t('Wm/2'),
+      u = t('TSYQ'),
+      p = t.n(u),
+      g = t('U0F3'),
+      f = t.n(g),
       h =
         'data:image/png;base64,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',
-      E =
+      A =
         'data:image/png;base64,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',
-      A = Object(s['createStyles'])({
+      E = Object(m['createStyles'])({
         root: { display: 'flex', flexWrap: 'wrap' },
         justifyContent: { justifyContent: 'space-between' },
         hidden: { display: 'none' },
@@ -146,7 +145,7 @@
           right: 0,
           top: 0,
           zIndex: 99,
-          backgroundImage: 'url('.concat(E, ')'),
+          backgroundImage: 'url('.concat(A, ')'),
           backgroundSize: '100% 100%',
         },
         parent: { overflow: 'hidden', margin: '0 8px 8px 0' },
@@ -212,44 +211,44 @@
           '100%': { transform: 'rotate(360deg)' },
         },
       }),
-      v = A,
-      k = () => {},
-      b = e => {
+      v = E,
+      b = () => {},
+      k = e => {
         var n = e.filesList,
           t = void 0 === n ? [] : n,
           a = e.classes,
           i = void 0 === a ? {} : a,
-          s = e.max,
-          m = void 0 === s ? 1 : s,
-          p = e.onChange,
-          h = void 0 === p ? k : p,
-          E = e.accept,
-          A = void 0 === E ? 'image/*' : E,
+          m = e.max,
+          u = void 0 === m ? 1 : m,
+          g = e.onChange,
+          h = void 0 === g ? b : g,
+          A = e.accept,
+          E = void 0 === A ? 'image/*' : A,
           v = e.multiple,
-          b = e.width,
-          y = void 0 === b ? '80px' : b,
+          k = e.width,
+          y = void 0 === k ? '80px' : k,
           x = e.height,
           C = void 0 === x ? '80px' : x,
           P = e.config,
           w = void 0 === P ? ['defaultBorder'] : P,
-          I = e.children,
-          j = e.mode,
-          B = void 0 === j ? 'fill' : j,
-          O = e.size,
+          j = e.children,
+          I = e.mode,
+          O = void 0 === I ? 'fill' : I,
+          B = e.size,
           N = e.disabledPreview,
           S = e.onUpload,
-          L = e.onFail,
-          D = void 0 === L ? k : L,
-          T = e.onGetPreviewUrl,
+          z = e.onFail,
+          L = void 0 === z ? b : z,
+          D = e.onGetPreviewUrl,
           M = e.resize,
-          R = Object(u['useRef'])(null),
-          z = Object(u['useRef'])(null),
-          U = Object(u['useRef'])(t),
+          T = Object(s['useRef'])(null),
+          R = Object(s['useRef'])(null),
+          U = Object(s['useRef'])(t),
           J = [];
         U.current.forEach(e => {
           e.preview ? J.push(e.preview) : e.url && J.push(e.url);
         });
-        var Q = Object(u['useMemo'])(() => {
+        var Q = Object(s['useMemo'])(() => {
             for (var e = 0, n = 0; n < t.length; n++) {
               var a = t[n],
                 r = a.url,
@@ -258,20 +257,20 @@
             }
             return e;
           }, [t]),
-          F = Object(u['useState'])(!1),
-          q = Object(c['default'])(F, 2),
-          X = q[0],
-          H = q[1],
-          K = Object(u['useState'])(0),
-          V = Object(c['default'])(K, 2),
+          F = Object(s['useState'])(!1),
+          K = Object(o['a'])(F, 2),
+          X = K[0],
+          q = K[1],
+          H = Object(s['useState'])(0),
+          V = Object(o['a'])(H, 2),
           Y = V[0],
           Z = V[1],
-          G = Object(u['useState'])(''),
-          W = Object(c['default'])(G, 2),
+          G = Object(s['useState'])(''),
+          W = Object(o['a'])(G, 2),
           _ = W[0],
           $ = W[1];
-        Object(u['useEffect'])(() => {
-          var e = getComputedStyle(z.current).width;
+        Object(s['useEffect'])(() => {
+          var e = getComputedStyle(R.current).width;
           $(e);
         }, []);
         var ee,
@@ -291,11 +290,11 @@
             var n = e.target,
               t = n.files;
             if (!t || !t.length) return (n.value = '');
-            var a = m - Q;
+            var a = u - Q;
             t.length > a &&
-              o.a.info(
+              c.a.info(
                 '\u56fe\u7247\u6700\u591a\u4e0d\u8d85\u8fc7'.concat(
-                  m,
+                  u,
                   '\u5f20',
                 ),
               );
@@ -306,15 +305,15 @@
             )
               l.push(te(r[i], i));
             U.current = U.current.filter(e => e.url || e.errorTip);
-            var c = U.current.length;
+            var o = U.current.length;
             Promise.all(l)
               .then(e => {
                 'function' === typeof S && e.forEach(e => (e.loading = !0));
                 var t = e.filter(e =>
-                  O && e.file.size > 1024 * O * 1024
-                    ? o.a.info(
+                  B && e.file.size > 1024 * B * 1024
+                    ? c.a.info(
                         '\u56fe\u7247\u5927\u5c0f\u4e0d\u80fd\u8d85\u8fc7'.concat(
-                          O,
+                          B,
                           'M',
                         ),
                       )
@@ -328,7 +327,7 @@
                   for (
                     var a = function(e) {
                         var n = U.current[e];
-                        e >= c &&
+                        e >= o &&
                           S(n)
                             .then(e => {
                               Object.assign(n, e, { loading: !1 }),
@@ -353,11 +352,11 @@
                 n.value = '';
               })
               .catch(e => {
-                D(e), (n.value = '');
+                L(e), (n.value = '');
               });
           },
           re = () => {
-            R && R.current && R.current.click();
+            T && T.current && T.current.click();
           },
           le = e => {
             for (var n = !0, t = 0; t < U.current.length; t++) {
@@ -368,7 +367,7 @@
               }
             }
             if (!n)
-              return o.a.info(
+              return c.a.info(
                 '\u56fe\u7247\u4e0a\u4f20\u4e2d\uff0c\u8bf7\u7a0d\u540e\u64cd\u4f5c',
               );
             U.current.splice(e, 1), (U.current = [...U.current]), h(U.current);
@@ -387,18 +386,18 @@
                         }
                         return e.abrupt('return');
                       case 2:
-                        if (U.current[t].preview || 'function' !== typeof T) {
+                        if (U.current[t].preview || 'function' !== typeof D) {
                           e.next = 9;
                           break;
                         }
-                        return (e.next = 5), T(t);
+                        return (e.next = 5), D(t);
                       case 5:
                         (a = e.sent),
                           (U.current[t].preview = a),
                           (U.current = [...U.current]),
                           h(U.current);
                       case 9:
-                        Z(n), oe();
+                        Z(n), ce();
                       case 11:
                       case 'end':
                         return e.stop();
@@ -410,7 +409,7 @@
               return e.apply(this, arguments);
             };
           })(),
-          oe = () => H(e => !e);
+          ce = () => q(e => !e);
         (function(e) {
           (e['defaultBorder'] = 'defaultBorder'),
             (e['defaultBackGround'] = 'defaultBackGround'),
@@ -422,26 +421,26 @@
               (e['contain'] = 'contain'),
               (e['scale-down'] = 'scale-down');
           })(ne || (ne = {}));
-        var ce = M ? _ : C,
-          ue = 0;
+        var oe = M ? _ : C,
+          se = 0;
         if (M) {
           var de = Math.floor(100 / parseFloat(y));
           if (t && t.length > 0 && de > 1) {
-            var se = t.length % de;
-            se >= 0 &&
-              se <= de - 1 &&
-              ((ue = de - se - 1), t.length === m && (ue += 1));
+            var me = t.length % de;
+            me >= 0 &&
+              me <= de - 1 &&
+              ((se = de - me - 1), t.length === u && (se += 1));
           }
         }
-        var me = f()(i.parent, { [i.noMargin]: 1 === m || t.length < 1 || M });
+        var ue = p()(i.parent, { [i.noMargin]: 1 === u || t.length < 1 || M });
         return d.a.createElement(
           'div',
-          { className: f()(i.root, { [i.justifyContent]: M }) },
+          { className: p()(i.root, { [i.justifyContent]: M }) },
           d.a.createElement('input', {
             className: i.hidden,
-            ref: R,
+            ref: T,
             type: 'file',
-            accept: A,
+            accept: E,
             multiple: v,
             onChange: ae,
           }),
@@ -451,35 +450,35 @@
               var a = e.url,
                 r = e.loading,
                 l = e.name,
-                o = e.errorTip;
-              if (a || o) {
+                c = e.errorTip;
+              if (a || c) {
                 for (
-                  var c = t.slice(0, n + 1), u = 0, s = 0;
-                  s < c.length;
-                  s++
+                  var o = t.slice(0, n + 1), s = 0, m = 0;
+                  m < o.length;
+                  m++
                 ) {
-                  var m = c[s].errorTip;
-                  m && u++;
+                  var u = o[m].errorTip;
+                  u && s++;
                 }
-                var p = n - u;
+                var g = n - s;
                 return d.a.createElement(
                   'div',
-                  { key: n, className: me, style: { width: y } },
+                  { key: n, className: ue, style: { width: y } },
                   d.a.createElement(
                     'div',
                     {
-                      className: f()(i.imgBox, ...w.map(e => i[e])),
-                      style: { height: ce },
+                      className: p()(i.imgBox, ...w.map(e => i[e])),
+                      style: { height: oe },
                     },
                     a &&
                       d.a.createElement('img', {
                         alt: '',
                         className: i.img,
                         src: a,
-                        style: { objectFit: B },
-                        onClick: () => ie(p, n),
+                        style: { objectFit: O },
+                        onClick: () => ie(g, n),
                       }),
-                    o && d.a.createElement('div', { className: i.errorTip }, o),
+                    c && d.a.createElement('div', { className: i.errorTip }, c),
                     d.a.createElement('i', {
                       className: i.iconRemove,
                       onClick: () => le(n),
@@ -495,16 +494,16 @@
                 );
               }
             }),
-          Q < m &&
+          Q < u &&
             d.a.createElement(
               'div',
-              { className: me, style: { width: y }, ref: z, onClick: re },
-              I ||
+              { className: ue, style: { width: y }, ref: R, onClick: re },
+              j ||
                 d.a.createElement('div', {
-                  style: { height: ce },
-                  className: f()(i.childrenEle, [...w.map(e => i[e])]),
+                  style: { height: oe },
+                  className: p()(i.childrenEle, [...w.map(e => i[e])]),
                 }),
-              1 === m &&
+              1 === u &&
                 t[0] &&
                 t[0].name &&
                 d.a.createElement(
@@ -513,21 +512,21 @@
                   t[0].name,
                 ),
             ),
-          ue > 0 &&
-            new Array(ue)
-              .fill(ue)
+          se > 0 &&
+            new Array(se)
+              .fill(se)
               .map((e, n) =>
                 d.a.createElement('div', {
                   key: n,
-                  className: me,
+                  className: ue,
                   style: { width: y },
                 }),
               ),
-          X && d.a.createElement(g.a, { onClose: oe, index: Y, urls: J }),
+          X && d.a.createElement(f.a, { onClose: ce, index: Y, urls: J }),
         );
       },
-      y = Object(s['withStyles'])(v)(b);
-    n['default'] = y;
+      y = Object(m['withStyles'])(v)(k);
+    n['a'] = y;
   },
   '9Ihz': function(e, n) {},
   '9kvl': function(e, n, t) {
@@ -538,9 +537,197 @@
     });
     t('bCY9');
   },
+  CK2m: function(e, n, t) {
+    'use strict';
+    t.r(n);
+    t('ZyjE');
+    var a = t('4IZf'),
+      r = t.n(a),
+      l = t('ODXe'),
+      i = t('q1tI'),
+      c = t.n(i),
+      o = t('Wm/2'),
+      s = t('2YZa'),
+      d = t('okqA'),
+      m = t('19b6'),
+      u = t('CWFq'),
+      p = Object(o['createUseStyles'])({
+        root: { boxSizing: 'border-box', display: 'flex' },
+        item: { flex: 1, '&:first-child': { marginRight: '10px' } },
+        children: {
+          background: '#e8f1fc',
+          height: '90px',
+          position: 'relative',
+        },
+        img: { width: '89px', height: '57px' },
+        iconPhoto: {
+          width: '32px',
+          height: '28px',
+          display: 'block',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          zIndex: 2,
+        },
+      });
+    n['default'] = () => {
+      var e = p(),
+        n = Object(i['useState'])([]),
+        t = Object(l['a'])(n, 2),
+        a = t[0],
+        o = t[1],
+        g = Object(i['useState'])([]),
+        f = Object(l['a'])(g, 2),
+        h = f[0],
+        A = f[1],
+        E = e =>
+          new Promise((e, n) => {
+            var t = Math.random();
+            setTimeout(() => {
+              if (t > 0.3) return e({ fssid: t.toString().slice(-6) });
+              n('\u4e0a\u4f20\u5931\u8d25');
+            }, 3e3);
+          }),
+        v = e => {
+          o(e);
+        },
+        b = e => {
+          A(e);
+        };
+      return c.a.createElement(
+        'div',
+        { className: e.root },
+        c.a.createElement(
+          'div',
+          { className: e.item },
+          c.a.createElement(
+            s['a'],
+            {
+              filesList: a,
+              onChange: v,
+              mode: 'cover',
+              width: '100%',
+              height: '90px',
+              onUpload: E,
+            },
+            c.a.createElement(
+              r.a,
+              { className: e.children, justify: 'center' },
+              c.a.createElement('img', { className: e.img, alt: '', src: d }),
+              c.a.createElement('img', {
+                alt: '',
+                className: e.iconPhoto,
+                src: u,
+              }),
+            ),
+          ),
+        ),
+        c.a.createElement(
+          'div',
+          { className: e.item },
+          c.a.createElement(
+            s['a'],
+            {
+              filesList: h,
+              onChange: b,
+              mode: 'cover',
+              width: '100%',
+              height: '90px',
+              onUpload: E,
+            },
+            c.a.createElement(
+              r.a,
+              { className: e.children, justify: 'center' },
+              c.a.createElement('img', { className: e.img, alt: '', src: m }),
+              c.a.createElement('img', {
+                alt: '',
+                className: e.iconPhoto,
+                src: u,
+              }),
+            ),
+          ),
+        ),
+      );
+    };
+  },
   CWFq: function(e, n) {
     e.exports =
       'data:image/png;base64,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';
+  },
+  FKBv: function(e, n, t) {
+    'use strict';
+    t.r(n);
+    t('ZyjE');
+    var a = t('4IZf'),
+      r = t.n(a),
+      l = (t('ca75'), t('JMAg')),
+      i = t.n(l),
+      c = (t('dlV3'), t('4cdd')),
+      o = t.n(c),
+      s = t('ODXe'),
+      d = t('q1tI'),
+      m = t.n(d),
+      u = t('2YZa');
+    n['default'] = () => {
+      var e = Object(d['useState'])([]),
+        n = Object(s['a'])(e, 2),
+        t = n[0],
+        a = n[1],
+        l = e => {
+          a(e);
+        };
+      return m.a.createElement(
+        r.a,
+        { direction: 'row', wrap: 'wrap' },
+        m.a.createElement(
+          i.a,
+          null,
+          m.a.createElement(u['a'], { filesList: t, onChange: l }),
+          m.a.createElement(o.a, null),
+        ),
+        m.a.createElement(
+          i.a,
+          null,
+          m.a.createElement(u['a'], {
+            filesList: t,
+            onChange: l,
+            config: ['defaultBackGround'],
+          }),
+          m.a.createElement(o.a, null),
+        ),
+        m.a.createElement(
+          i.a,
+          null,
+          m.a.createElement(u['a'], {
+            filesList: t,
+            onChange: l,
+            config: ['defaultDashed'],
+          }),
+          m.a.createElement(o.a, null),
+        ),
+        m.a.createElement(
+          i.a,
+          null,
+          m.a.createElement(u['a'], {
+            filesList: t,
+            onChange: l,
+            config: ['defaultBorder', 'defaultBackGround'],
+          }),
+          m.a.createElement(o.a, null),
+        ),
+        m.a.createElement(
+          i.a,
+          null,
+          m.a.createElement(u['a'], {
+            filesList: t,
+            onChange: l,
+            config: ['defaultDashed', 'defaultBackGround'],
+          }),
+          m.a.createElement(o.a, null),
+        ),
+      );
+    };
   },
   FfOG: function(e, n, t) {
     'use strict';
@@ -565,313 +752,10 @@
     'use strict';
     t.r(n),
       (n['default'] = {
-        'image-picker-demo': {
-          component: function() {
-            var e = t('284h'),
-              n = t('TqRt');
-            t('ZyjE');
-            var a = n(t('4IZf'));
-            t('ca75');
-            var r = n(t('JMAg'));
-            t('dlV3');
-            var l = n(t('4cdd')),
-              i = n(t('ODXe')),
-              o = e(t('q1tI')),
-              c = (t('9ibs'), n(t('2YZa'))),
-              u = function() {
-                var e = (0, o.useState)([]),
-                  n = (0, i['default'])(e, 2),
-                  t = n[0],
-                  u = n[1],
-                  d = function(e) {
-                    u(e);
-                  };
-                return o['default'].createElement(
-                  a['default'],
-                  { direction: 'row', wrap: 'wrap' },
-                  o['default'].createElement(
-                    r['default'],
-                    null,
-                    o['default'].createElement(c['default'], {
-                      filesList: t,
-                      onChange: d,
-                    }),
-                    o['default'].createElement(l['default'], null),
-                  ),
-                  o['default'].createElement(
-                    r['default'],
-                    null,
-                    o['default'].createElement(c['default'], {
-                      filesList: t,
-                      onChange: d,
-                      config: ['defaultBackGround'],
-                    }),
-                    o['default'].createElement(l['default'], null),
-                  ),
-                  o['default'].createElement(
-                    r['default'],
-                    null,
-                    o['default'].createElement(c['default'], {
-                      filesList: t,
-                      onChange: d,
-                      config: ['defaultDashed'],
-                    }),
-                    o['default'].createElement(l['default'], null),
-                  ),
-                  o['default'].createElement(
-                    r['default'],
-                    null,
-                    o['default'].createElement(c['default'], {
-                      filesList: t,
-                      onChange: d,
-                      config: ['defaultBorder', 'defaultBackGround'],
-                    }),
-                    o['default'].createElement(l['default'], null),
-                  ),
-                  o['default'].createElement(
-                    r['default'],
-                    null,
-                    o['default'].createElement(c['default'], {
-                      filesList: t,
-                      onChange: d,
-                      config: ['defaultDashed', 'defaultBackGround'],
-                    }),
-                    o['default'].createElement(l['default'], null),
-                  ),
-                );
-              };
-            return o['default'].createElement(u);
-          },
-        },
-        'image-picker-demo-1': {
-          component: function() {
-            var e = t('284h'),
-              n = t('TqRt'),
-              a = n(t('ODXe')),
-              r = e(t('q1tI')),
-              l = n(t('2YZa')),
-              i = function() {
-                var e = (0, r.useState)([]),
-                  n = (0, a['default'])(e, 2),
-                  t = n[0],
-                  i = n[1],
-                  o = function(e) {
-                    e.forEach(function(e, n) {
-                      return (e.name = '\u793a\u4f8b\u56fe'.concat(n));
-                    }),
-                      i(e);
-                  },
-                  c = function(e) {
-                    return new Promise(function(e, n) {
-                      var t = Math.random();
-                      setTimeout(function() {
-                        if (t > 0.3)
-                          return e({ fssid: t.toString().slice(-6) });
-                        n('\u4e0a\u4f20\u5931\u8d25');
-                      }, 3e3);
-                    });
-                  };
-                return r['default'].createElement(l['default'], {
-                  filesList: t,
-                  onChange: o,
-                  multiple: !0,
-                  max: 10,
-                  mode: 'cover',
-                  onUpload: c,
-                });
-              };
-            return r['default'].createElement(i);
-          },
-        },
-        'image-picker-demo-2': {
-          component: function() {
-            var e = t('284h'),
-              n = t('TqRt');
-            t('ZyjE');
-            var a = n(t('4IZf')),
-              r = n(t('ODXe')),
-              l = e(t('q1tI')),
-              i = t('Wm/2'),
-              o = (t('9ibs'), n(t('2YZa'))),
-              c = t('okqA'),
-              u = t('19b6'),
-              d = t('CWFq'),
-              s = (0, i.createUseStyles)({
-                root: { boxSizing: 'border-box', display: 'flex' },
-                item: { flex: 1, '&:first-child': { marginRight: '10px' } },
-                children: {
-                  background: '#e8f1fc',
-                  height: '90px',
-                  position: 'relative',
-                },
-                img: { width: '89px', height: '57px' },
-                iconPhoto: {
-                  width: '32px',
-                  height: '28px',
-                  display: 'block',
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  zIndex: 2,
-                },
-              }),
-              m = function() {
-                var e = s(),
-                  n = (0, l.useState)([
-                    { name: '\u8eab\u4efd\u8bc1\u4eba\u50cf\u9762', url: '' },
-                  ]),
-                  t = (0, r['default'])(n, 2),
-                  i = t[0],
-                  m = t[1],
-                  f = (0, l.useState)([
-                    { name: '\u8eab\u4efd\u8bc1\u56fd\u5fbd\u9762', url: '' },
-                  ]),
-                  p = (0, r['default'])(f, 2),
-                  g = p[0],
-                  h = p[1],
-                  E = function(e) {
-                    return new Promise(function(e, n) {
-                      var t = Math.random();
-                      setTimeout(function() {
-                        if (t > 0.3)
-                          return e({ fssid: t.toString().slice(-6) });
-                        n('\u4e0a\u4f20\u5931\u8d25');
-                      }, 3e3);
-                    });
-                  },
-                  A = function(e) {
-                    0 === e.length && e.push({ url: '' }),
-                      e.forEach(function(e, n) {
-                        return (e.name =
-                          '\u8eab\u4efd\u8bc1\u4eba\u50cf\u9762');
-                      }),
-                      m(e);
-                  },
-                  v = function(e) {
-                    0 === e.length && e.push({ url: '' }),
-                      e.forEach(function(e, n) {
-                        return (e.name =
-                          '\u8eab\u4efd\u8bc1\u56fd\u5fbd\u9762');
-                      }),
-                      h(e);
-                  };
-                return l['default'].createElement(
-                  'div',
-                  { className: e.root },
-                  l['default'].createElement(
-                    'div',
-                    { className: e.item },
-                    l['default'].createElement(
-                      o['default'],
-                      {
-                        filesList: i,
-                        onChange: A,
-                        mode: 'cover',
-                        width: '100%',
-                        height: '90px',
-                        onUpload: E,
-                      },
-                      l['default'].createElement(
-                        a['default'],
-                        { className: e.children, justify: 'center' },
-                        l['default'].createElement('img', {
-                          className: e.img,
-                          alt: '',
-                          src: c,
-                        }),
-                        l['default'].createElement('img', {
-                          alt: '',
-                          className: e.iconPhoto,
-                          src: d,
-                        }),
-                      ),
-                    ),
-                  ),
-                  l['default'].createElement(
-                    'div',
-                    { className: e.item },
-                    l['default'].createElement(
-                      o['default'],
-                      {
-                        filesList: g,
-                        onChange: v,
-                        mode: 'cover',
-                        width: '100%',
-                        height: '90px',
-                        onUpload: E,
-                      },
-                      l['default'].createElement(
-                        a['default'],
-                        { className: e.children, justify: 'center' },
-                        l['default'].createElement('img', {
-                          className: e.img,
-                          alt: '',
-                          src: u,
-                        }),
-                        l['default'].createElement('img', {
-                          alt: '',
-                          className: e.iconPhoto,
-                          src: d,
-                        }),
-                      ),
-                    ),
-                  ),
-                );
-              };
-            return l['default'].createElement(m);
-          },
-        },
-        'image-picker-demo-3': {
-          component: function() {
-            var e = t('284h'),
-              n = t('TqRt');
-            t('TttT');
-            var a = n(t('Kl5d')),
-              r = n(t('ODXe')),
-              l = e(t('q1tI')),
-              i = (t('9ibs'), n(t('2YZa'))),
-              o = function() {
-                var e = (0, l.useState)([]),
-                  n = (0, r['default'])(e, 2),
-                  t = n[0],
-                  o = n[1],
-                  c = function(e) {
-                    o(e);
-                  },
-                  u = function(e) {
-                    return new Promise(function(e, n) {
-                      var t = Math.random();
-                      setTimeout(function() {
-                        if (t > 0.3)
-                          return e({ fssid: t.toString().slice(-6) });
-                        n('\u4e0a\u4f20\u5931\u8d25');
-                      }, 3e3);
-                    });
-                  },
-                  d = function(e) {
-                    return new Promise(function(n, r) {
-                      a['default'].loading('Loading...'),
-                        setTimeout(function() {
-                          a['default'].hide(), n(t[e].url);
-                        }, 1e3);
-                    });
-                  };
-                return l['default'].createElement(i['default'], {
-                  filesList: t,
-                  onChange: c,
-                  multiple: !0,
-                  max: 12,
-                  mode: 'cover',
-                  onUpload: u,
-                  resize: !0,
-                  width: '22%',
-                  onGetPreviewUrl: d,
-                });
-              };
-            return l['default'].createElement(o);
-          },
-        },
+        'image-picker-base': { component: t('FKBv').default },
+        'image-picker-onupload': { component: t('jQK9').default },
+        'image-picker-idcard': { component: t('CK2m').default },
+        'image-picker-resize': { component: t('cazh').default },
       });
   },
   Rsk4: function(e, n, t) {
@@ -881,14 +765,14 @@
       r = t.n(a),
       l = t('Ns0n'),
       i = t('HaE+'),
-      o = t('q1tI'),
-      c = t.n(o),
-      u = t('rlch');
+      c = t('q1tI'),
+      o = t.n(c),
+      s = t('rlch');
     n['default'] = {
-      'image-picker-demo': {
+      'image-picker-base': {
         component: () =>
-          c.a.createElement(
-            Object(u['a'])({
+          o.a.createElement(
+            Object(s['a'])({
               loader: (function() {
                 var e = Object(i['a'])(
                   r.a.mark(function e() {
@@ -909,7 +793,7 @@
                               (a = n.default),
                               e.abrupt(
                                 'return',
-                                a['image-picker-demo'].component,
+                                a['image-picker-base'].component,
                               )
                             );
                           case 5:
@@ -931,7 +815,7 @@
           sources: {
             _: {
               tsx:
-                "import React, { useState } from 'react';\n\nimport { WhiteSpace, Flex, WingBlank } from 'antd-mobile';\nimport ImagePicker from 'image-picker-mobile';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [filesList, setFilesList] = useState([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    setFilesList(arr);\n  };\n\n  return (\n    <Flex direction=\"row\" wrap=\"wrap\">\n      <WingBlank>\n        <ImagePicker filesList={filesList} onChange={onChange} />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          filesList={filesList}\n          onChange={onChange}\n          config={['defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          filesList={filesList}\n          onChange={onChange}\n          config={['defaultDashed']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          filesList={filesList}\n          onChange={onChange}\n          config={['defaultBorder', 'defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          filesList={filesList}\n          onChange={onChange}\n          config={['defaultDashed', 'defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n    </Flex>\n  );\n};",
+                "import React, { useState } from 'react';\n\nimport { WhiteSpace, Flex, WingBlank } from 'antd-mobile';\nimport ImagePicker from 'image-picker-mobile';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [filesList, setFilesList] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    setFilesList(arr);\n  };\n\n  return (\n    <Flex direction=\"row\" wrap=\"wrap\">\n      <WingBlank>\n        <ImagePicker filesList={filesList} onChange={onChange} />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          filesList={filesList}\n          onChange={onChange}\n          config={['defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          filesList={filesList}\n          onChange={onChange}\n          config={['defaultDashed']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          filesList={filesList}\n          onChange={onChange}\n          config={['defaultBorder', 'defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n      <WingBlank>\n        <ImagePicker\n          filesList={filesList}\n          onChange={onChange}\n          config={['defaultDashed', 'defaultBackGround']}\n        />\n        <WhiteSpace />\n      </WingBlank>\n    </Flex>\n  );\n};",
             },
           },
           dependencies: {
@@ -943,13 +827,13 @@
             'image-picker-mobile': { version: '1.0.9' },
           },
           componentName: 'image-picker',
-          identifier: 'image-picker-demo',
+          identifier: 'image-picker-base',
         },
       },
-      'image-picker-demo-1': {
+      'image-picker-onupload': {
         component: () =>
-          c.a.createElement(
-            Object(u['a'])({
+          o.a.createElement(
+            Object(s['a'])({
               loader: (function() {
                 var e = Object(i['a'])(
                   r.a.mark(function e() {
@@ -970,7 +854,7 @@
                               (a = n.default),
                               e.abrupt(
                                 'return',
-                                a['image-picker-demo-1'].component,
+                                a['image-picker-onupload'].component,
                               )
                             );
                           case 5:
@@ -992,7 +876,7 @@
           sources: {
             _: {
               tsx:
-                "import React, { useState } from 'react';\n\nimport ImagePicker from 'image-picker-mobile';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [filesList, setFilesList] = useState([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setFilesList(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n    />\n  );\n};",
+                "import React, { useState } from 'react';\n\nimport ImagePicker from 'image-picker-mobile';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [filesList, setFilesList] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setFilesList(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={10}\n      mode=\"cover\"\n      onUpload={onUpload}\n    />\n  );\n};",
             },
           },
           dependencies: {
@@ -1000,13 +884,13 @@
             'image-picker-mobile': { version: '1.0.9' },
           },
           componentName: 'image-picker',
-          identifier: 'image-picker-demo-1',
+          identifier: 'image-picker-onupload',
         },
       },
-      'image-picker-demo-2': {
+      'image-picker-idcard': {
         component: () =>
-          c.a.createElement(
-            Object(u['a'])({
+          o.a.createElement(
+            Object(s['a'])({
               loader: (function() {
                 var e = Object(i['a'])(
                   r.a.mark(function e() {
@@ -1027,7 +911,7 @@
                               (a = n.default),
                               e.abrupt(
                                 'return',
-                                a['image-picker-demo-2'].component,
+                                a['image-picker-idcard'].component,
                               )
                             );
                           case 5:
@@ -1049,7 +933,7 @@
           sources: {
             _: {
               tsx:
-                "import React, { useState } from 'react';\nimport { createUseStyles } from '@wonder-ui/styles';\n\nimport { Flex } from 'antd-mobile';\nimport ImagePicker from 'image-picker-mobile';\n\nconst iconIdCard = require('../assets/images/icon-idcard.png');\nconst iconIdCardBack = require('../assets/images/icon-idcard-back.png');\nconst iconPhoto = require('../assets/images/icon-photo.png');\n\nconst styles = createUseStyles({\n  root: {\n    boxSizing: 'border-box',\n    display: 'flex',\n  },\n  item: {\n    flex: 1,\n    '&:first-child': {\n      marginRight: '10px',\n    },\n  },\n  children: {\n    background: '#e8f1fc',\n    height: '90px',\n    position: 'relative',\n  },\n  img: {\n    width: '89px',\n    height: '57px',\n  },\n  iconPhoto: {\n    width: '32px',\n    height: '28px',\n    display: 'block',\n    position: 'absolute',\n    top: '50%',\n    left: '50%',\n    transform: 'translate(-50%, -50%)',\n    zIndex: 2,\n  },\n});\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const s = styles();\n\n  const [idCard, setIdCard] = useState<Array<Files>>([\n    { name: '\u8eab\u4efd\u8bc1\u4eba\u50cf\u9762', url: '' },\n  ]);\n  const [idCardBack, setIdCardBack] = useState<Array<Files>>([\n    { name: '\u8eab\u4efd\u8bc1\u56fd\u5fbd\u9762', url: '' },\n  ]);\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u4eba\u50cf\u9762\u6539\u53d8\n  const onChangeIdCard = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    if (arr.length === 0) {\n      arr.push({ url: '' });\n    }\n    arr.forEach((item, index) => (item.name = '\u8eab\u4efd\u8bc1\u4eba\u50cf\u9762'));\n    setIdCard(arr);\n  };\n\n  // \u56fd\u5fbd\u9762\u6539\u53d8\n  const onChangeIdCardBack = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    if (arr.length === 0) {\n      arr.push({ url: '' });\n    }\n    arr.forEach((item, index) => (item.name = '\u8eab\u4efd\u8bc1\u56fd\u5fbd\u9762'));\n    setIdCardBack(arr);\n  };\n\n  return (\n    <div className={s.root}>\n      <div className={s.item}>\n        <ImagePicker\n          filesList={idCard}\n          onChange={onChangeIdCard}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCard} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n      <div className={s.item}>\n        <ImagePicker\n          filesList={idCardBack}\n          onChange={onChangeIdCardBack}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCardBack} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n    </div>\n  );\n};",
+                "import React, { useState } from 'react';\nimport { createUseStyles } from '@wonder-ui/styles';\n\nimport { Flex } from 'antd-mobile';\nimport ImagePicker from 'image-picker-mobile';\n\nconst iconIdCard = require('../../assets/images/icon-idcard.png');\nconst iconIdCardBack = require('../../assets/images/icon-idcard-back.png');\nconst iconPhoto = require('../../assets/images/icon-photo.png');\n\nconst styles = createUseStyles({\n  root: {\n    boxSizing: 'border-box',\n    display: 'flex',\n  },\n  item: {\n    flex: 1,\n    '&:first-child': {\n      marginRight: '10px',\n    },\n  },\n  children: {\n    background: '#e8f1fc',\n    height: '90px',\n    position: 'relative',\n  },\n  img: {\n    width: '89px',\n    height: '57px',\n  },\n  iconPhoto: {\n    width: '32px',\n    height: '28px',\n    display: 'block',\n    position: 'absolute',\n    top: '50%',\n    left: '50%',\n    transform: 'translate(-50%, -50%)',\n    zIndex: 2,\n  },\n});\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const s = styles();\n\n  const [idCard, setIdCard] = useState<Array<Files>>([]);\n  const [idCardBack, setIdCardBack] = useState<Array<Files>>([]);\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('onUpload', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u4eba\u50cf\u9762\u6539\u53d8\n  const onChangeIdCard = (arr: Array<Files>) => {\n    setIdCard(arr);\n  };\n\n  // \u56fd\u5fbd\u9762\u6539\u53d8\n  const onChangeIdCardBack = (arr: Array<Files>) => {\n    setIdCardBack(arr);\n  };\n\n  return (\n    <div className={s.root}>\n      <div className={s.item}>\n        <ImagePicker\n          filesList={idCard}\n          onChange={onChangeIdCard}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCard} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n      <div className={s.item}>\n        <ImagePicker\n          filesList={idCardBack}\n          onChange={onChangeIdCardBack}\n          mode=\"cover\"\n          width=\"100%\"\n          height=\"90px\"\n          onUpload={onUpload}\n        >\n          <Flex className={s.children} justify=\"center\">\n            <img className={s.img} alt=\"\" src={iconIdCardBack} />\n            <img alt=\"\" className={s.iconPhoto} src={iconPhoto} />\n          </Flex>\n        </ImagePicker>\n      </div>\n    </div>\n  );\n};",
             },
           },
           dependencies: {
@@ -1063,13 +947,13 @@
           },
           componentName: 'image-picker',
           compact: !0,
-          identifier: 'image-picker-demo-2',
+          identifier: 'image-picker-idcard',
         },
       },
-      'image-picker-demo-3': {
+      'image-picker-resize': {
         component: () =>
-          c.a.createElement(
-            Object(u['a'])({
+          o.a.createElement(
+            Object(s['a'])({
               loader: (function() {
                 var e = Object(i['a'])(
                   r.a.mark(function e() {
@@ -1090,7 +974,7 @@
                               (a = n.default),
                               e.abrupt(
                                 'return',
-                                a['image-picker-demo-3'].component,
+                                a['image-picker-resize'].component,
                               )
                             );
                           case 5:
@@ -1112,7 +996,7 @@
           sources: {
             _: {
               tsx:
-                "import React, { useState } from 'react';\n\nimport { Toast } from 'antd-mobile';\nimport ImagePicker from 'image-picker-mobile';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [filesList, setFilesList] = useState([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    setFilesList(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n  const onGetPreviewUrl = (index: number): Promise<string> => {\n    return new Promise((resolve, reject) => {\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(filesList[index].url);\n      }, 1000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={12}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"22%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};",
+                "import React, { useState } from 'react';\n\nimport { Toast } from 'antd-mobile';\nimport ImagePicker from 'image-picker-mobile';\n\ninterface Files {\n  url: string; // \u56fe\u7247url\n  preview?: string; // \u9884\u89c8\u56fe\n  loading?: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n  errorTip?: string; // \u9519\u8bef\u63d0\u793a\n  name?: string; // \u56fe\u7247\u540d\u79f0\n  [index: string]: any;\n}\n\nexport default () => {\n  const [filesList, setFilesList] = useState<Array<Files>>([]);\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    setFilesList(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = (item: any): Promise<object | undefined> => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n  const onGetPreviewUrl = (index: number): Promise<string> => {\n    return new Promise((resolve, reject) => {\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(filesList[index].url);\n      }, 1000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={12}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"22%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};",
             },
           },
           dependencies: {
@@ -1124,7 +1008,7 @@
             'image-picker-mobile': { version: '1.0.9' },
           },
           componentName: 'image-picker',
-          identifier: 'image-picker-demo-3',
+          identifier: 'image-picker-resize',
         },
       },
     };
@@ -1144,6 +1028,52 @@
           'onRouteChange',
         ],
       });
+  },
+  cazh: function(e, n, t) {
+    'use strict';
+    t.r(n);
+    t('TttT');
+    var a = t('Kl5d'),
+      r = t.n(a),
+      l = t('ODXe'),
+      i = t('q1tI'),
+      c = t.n(i),
+      o = t('2YZa');
+    n['default'] = () => {
+      var e = Object(i['useState'])([]),
+        n = Object(l['a'])(e, 2),
+        t = n[0],
+        a = n[1],
+        s = e => {
+          a(e);
+        },
+        d = e =>
+          new Promise((e, n) => {
+            var t = Math.random();
+            setTimeout(() => {
+              if (t > 0.3) return e({ fssid: t.toString().slice(-6) });
+              n('\u4e0a\u4f20\u5931\u8d25');
+            }, 3e3);
+          }),
+        m = e =>
+          new Promise((n, a) => {
+            r.a.loading('Loading...'),
+              setTimeout(() => {
+                r.a.hide(), n(t[e].url);
+              }, 1e3);
+          });
+      return c.a.createElement(o['a'], {
+        filesList: t,
+        onChange: s,
+        multiple: !0,
+        max: 12,
+        mode: 'cover',
+        onUpload: d,
+        resize: !0,
+        width: '22%',
+        onGetPreviewUrl: m,
+      });
+    };
   },
   gql7: function(e, n, t) {
     'use strict';
@@ -1226,6 +1156,39 @@
       );
     };
   },
+  jQK9: function(e, n, t) {
+    'use strict';
+    t.r(n);
+    var a = t('ODXe'),
+      r = t('q1tI'),
+      l = t.n(r),
+      i = t('2YZa');
+    n['default'] = () => {
+      var e = Object(r['useState'])([]),
+        n = Object(a['a'])(e, 2),
+        t = n[0],
+        c = n[1],
+        o = e => {
+          e.forEach((e, n) => (e.name = '\u793a\u4f8b\u56fe'.concat(n))), c(e);
+        },
+        s = e =>
+          new Promise((e, n) => {
+            var t = Math.random();
+            setTimeout(() => {
+              if (t > 0.3) return e({ fssid: t.toString().slice(-6) });
+              n('\u4e0a\u4f20\u5931\u8d25');
+            }, 3e3);
+          });
+      return l.a.createElement(i['a'], {
+        filesList: t,
+        onChange: o,
+        multiple: !0,
+        max: 10,
+        mode: 'cover',
+        onUpload: s,
+      });
+    };
+  },
   mZby: function(e, n, t) {
     'use strict';
     t.r(n);
@@ -1233,10 +1196,10 @@
       r = t.n(a),
       l = t('dEAq'),
       i = t('1R9V'),
-      o = r.a.memo(t('Rsk4').default['image-picker-demo'].component),
-      c = r.a.memo(t('Rsk4').default['image-picker-demo-1'].component),
-      u = r.a.memo(t('Rsk4').default['image-picker-demo-2'].component),
-      d = r.a.memo(t('Rsk4').default['image-picker-demo-3'].component);
+      c = r.a.memo(t('Rsk4').default['image-picker-base'].component),
+      o = r.a.memo(t('Rsk4').default['image-picker-onupload'].component),
+      s = r.a.memo(t('Rsk4').default['image-picker-idcard'].component),
+      d = r.a.memo(t('Rsk4').default['image-picker-resize'].component);
     n['default'] = function() {
       return r.a.createElement(
         r.a.Fragment,
@@ -1278,8 +1241,8 @@
           ),
           r.a.createElement(
             i['default'],
-            t('Rsk4').default['image-picker-demo'].previewerProps,
-            r.a.createElement(o, null),
+            t('Rsk4').default['image-picker-base'].previewerProps,
+            r.a.createElement(c, null),
           ),
           r.a.createElement(
             'div',
@@ -1301,8 +1264,8 @@
           ),
           r.a.createElement(
             i['default'],
-            t('Rsk4').default['image-picker-demo-1'].previewerProps,
-            r.a.createElement(c, null),
+            t('Rsk4').default['image-picker-onupload'].previewerProps,
+            r.a.createElement(o, null),
           ),
           r.a.createElement(
             'div',
@@ -1324,8 +1287,8 @@
           ),
           r.a.createElement(
             i['default'],
-            t('Rsk4').default['image-picker-demo-2'].previewerProps,
-            r.a.createElement(u, null),
+            t('Rsk4').default['image-picker-idcard'].previewerProps,
+            r.a.createElement(s, null),
           ),
           r.a.createElement(
             'div',
@@ -1351,7 +1314,7 @@
           ),
           r.a.createElement(
             i['default'],
-            t('Rsk4').default['image-picker-demo-3'].previewerProps,
+            t('Rsk4').default['image-picker-resize'].previewerProps,
             r.a.createElement(d, null),
           ),
           r.a.createElement(
@@ -1915,7 +1878,7 @@
       r = (t('9Ihz'), t('FfOG')),
       l = t('LtsZ'),
       i = t('zlVK');
-    function o() {
+    function c() {
       var e = [
         {
           path: '/~demos/:uuid',
@@ -1958,7 +1921,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/image-picker/index.md',
-                updatedTime: 1609839223e3,
+                updatedTime: 1609840762e3,
                 componentName: 'image-picker',
                 group: {
                   title: 'ImagePicker \u56fe\u7247\u9009\u62e9\u5668',
@@ -2015,7 +1978,7 @@
         e
       );
     }
-    var c = function() {
+    var o = function() {
         var e =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
         return a['a'].applyPlugins({
@@ -2026,7 +1989,7 @@
               key: 'modifyClientRenderOpts',
               type: l['ApplyPluginsType'].modify,
               initialValue: {
-                routes: e.routes || o(),
+                routes: e.routes || c(),
                 plugin: a['a'],
                 history: Object(r['a'])(e.hot),
                 isServer: Object({ NODE_ENV: 'production' }).__IS_SERVER,
@@ -2039,8 +2002,8 @@
           args: e,
         });
       },
-      u = c();
-    n['default'] = u();
+      s = o();
+    n['default'] = s();
     window.g_umi = { version: '3.3.3' };
   },
   x2v5: function(e) {
