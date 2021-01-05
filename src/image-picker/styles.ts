@@ -35,9 +35,7 @@ const styles = createStyles({
     border: '1px solid #d56161',
     boxSizing: 'border-box',
     borderRadius: '5px',
-    padding: '0 8px',
-    wordBreak: 'keep-all',
-    textAlign: 'center',
+    padding: '0 3px',
   },
   iconRemove: {
     width: '20px',

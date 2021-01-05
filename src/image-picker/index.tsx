@@ -241,11 +241,15 @@ const ImagePicker = (props: ImagePickerProps) => {
     const rowNum = Math.floor(100 / parseFloat(width));
     if (filesList && filesList.length > 0 && rowNum > 1) {
       const restNum = filesList.length % rowNum;
-      if (restNum > 0 && restNum < rowNum - 1) {
+      if (restNum >= 0 && restNum <= rowNum - 1) {
         spaceNum = rowNum - restNum - 1;
+        if (filesList.length === max) {
+          spaceNum += 1;
+        }
       }
     }
   }
+  console.log('spaceNum', spaceNum);
 
   // parent样式
   const classParent = classnames(s.parent, {

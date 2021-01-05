@@ -320,11 +320,11 @@ export default () => {
       filesList={filesList}
       onChange={onChange}
       multiple
-      max={10}
+      max={12}
       mode="cover"
       onUpload={onUpload}
       resize
-      width="18%"
+      width="22%"
       onGetPreviewUrl={onGetPreviewUrl}
     />
   );

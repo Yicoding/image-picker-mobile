@@ -199,9 +199,7 @@ var styles = styles$1.createStyles({
     border: '1px solid #d56161',
     boxSizing: 'border-box',
     borderRadius: '5px',
-    padding: '0 8px',
-    wordBreak: 'keep-all',
-    textAlign: 'center',
+    padding: '0 3px',
   },
   iconRemove: {
     width: '20px',
@@ -610,11 +608,17 @@ var ImagePicker = function ImagePicker(props) {
     if (filesList && filesList.length > 0 && rowNum > 1) {
       var restNum = filesList.length % rowNum;
 
-      if (restNum > 0 && restNum < rowNum - 1) {
+      if (restNum >= 0 && restNum <= rowNum - 1) {
         spaceNum = rowNum - restNum - 1;
+
+        if (filesList.length === max) {
+          spaceNum += 1;
+        }
       }
     }
-  } // parent样式
+  }
+
+  console.log('spaceNum', spaceNum); // parent样式
 
   var classParent = classnames__default['default'](
     s.parent,
