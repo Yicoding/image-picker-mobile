@@ -150,7 +150,7 @@
           backgroundSize: '100% 100%',
         },
         parent: { overflow: 'hidden', margin: '0 8px 8px 0' },
-        noMargin: { margin: 0 },
+        noMargin: { margin: '0 0 8px 0' },
         name: {
           textAlign: 'center',
           wordBreak: 'break-all',
@@ -240,8 +240,8 @@
           S = e.onUpload,
           L = e.onFail,
           D = void 0 === L ? k : L,
-          M = e.onGetPreviewUrl,
-          T = e.resize,
+          T = e.onGetPreviewUrl,
+          M = e.resize,
           R = Object(u['useRef'])(null),
           z = Object(u['useRef'])(null),
           U = Object(u['useRef'])(t),
@@ -387,11 +387,11 @@
                         }
                         return e.abrupt('return');
                       case 2:
-                        if (U.current[t].preview || 'function' !== typeof M) {
+                        if (U.current[t].preview || 'function' !== typeof T) {
                           e.next = 9;
                           break;
                         }
-                        return (e.next = 5), M(t);
+                        return (e.next = 5), T(t);
                       case 5:
                         (a = e.sent),
                           (U.current[t].preview = a),
@@ -422,9 +422,9 @@
               (e['contain'] = 'contain'),
               (e['scale-down'] = 'scale-down');
           })(ne || (ne = {}));
-        var ce = T ? _ : C,
+        var ce = M ? _ : C,
           ue = 0;
-        if (T) {
+        if (M) {
           var de = Math.floor(100 / parseFloat(y));
           if (t && t.length > 0 && de > 1) {
             var se = t.length % de;
@@ -433,10 +433,10 @@
               ((ue = de - se - 1), t.length === m && (ue += 1));
           }
         }
-        var me = f()(i.parent, { [i.noMargin]: 1 === m || t.length < 1 || T });
+        var me = f()(i.parent, { [i.noMargin]: 1 === m || t.length < 1 || M });
         return d.a.createElement(
           'div',
-          { className: f()(i.root, { [i.justifyContent]: T }) },
+          { className: f()(i.root, { [i.justifyContent]: M }) },
           d.a.createElement('input', {
             className: i.hidden,
             ref: R,
@@ -514,13 +514,15 @@
                 ),
             ),
           ue > 0 &&
-            new Array(ue).fill(ue).map((e, n) =>
-              d.a.createElement('div', {
-                key: n,
-                className: me,
-                style: { width: y },
-              }),
-            ),
+            new Array(ue)
+              .fill(ue)
+              .map((e, n) =>
+                d.a.createElement('div', {
+                  key: n,
+                  className: me,
+                  style: { width: y },
+                }),
+              ),
           X && d.a.createElement(g.a, { onClose: oe, index: Y, urls: J }),
         );
       },
@@ -835,10 +837,7 @@
                   t = n[0],
                   o = n[1],
                   c = function(e) {
-                    e.forEach(function(e, n) {
-                      return (e.name = '\u793a\u4f8b\u56fe'.concat(n));
-                    }),
-                      o(e);
+                    o(e);
                   },
                   u = function(e) {
                     return new Promise(function(e, n) {
@@ -852,7 +851,6 @@
                   },
                   d = function(e) {
                     return new Promise(function(n, r) {
-                      Math.random();
                       a['default'].loading('Loading...'),
                         setTimeout(function() {
                           a['default'].hide(), n(t[e].url);
@@ -942,7 +940,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.1' },
-            'image-picker-mobile': { version: '1.0.5' },
+            'image-picker-mobile': { version: '1.0.6' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-demo',
@@ -999,7 +997,7 @@
           },
           dependencies: {
             react: { version: '17.0.1' },
-            'image-picker-mobile': { version: '1.0.5' },
+            'image-picker-mobile': { version: '1.0.6' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-demo-1',
@@ -1061,7 +1059,7 @@
             },
             react: { version: '>=16.8.0' },
             '@wonder-ui/styles': { version: '2.0.0-beta.9' },
-            'image-picker-mobile': { version: '1.0.5' },
+            'image-picker-mobile': { version: '1.0.6' },
           },
           componentName: 'image-picker',
           compact: !0,
@@ -1114,7 +1112,7 @@
           sources: {
             _: {
               tsx:
-                "import React, { useState } from 'react';\n\nimport { Toast } from 'antd-mobile';\nimport ImagePicker from 'image-picker-mobile';\n\nexport default () => {\n  const [filesList, setFilesList] = useState([]);\n\n  interface Files {\n    url: string; // \u56fe\u7247url\n    loading: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n    errorTip?: string; // \u9519\u8bef\u63d0\u793a\n    name?: string; // \u56fe\u7247\u540d\u79f0\n    [index: string]: any;\n  }\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    arr.forEach((item, index) => (item.name = `\u793a\u4f8b\u56fe${index}`));\n    setFilesList(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = item => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n  const onGetPreviewUrl = index => {\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(filesList[index].url);\n      }, 1000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={12}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"22%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};",
+                "import React, { useState } from 'react';\n\nimport { Toast } from 'antd-mobile';\nimport ImagePicker from 'image-picker-mobile';\n\nexport default () => {\n  const [filesList, setFilesList] = useState([]);\n\n  interface Files {\n    url: string; // \u56fe\u7247url\n    loading: boolean; // \u56fe\u7247\u662f\u5426\u52a0\u8f7d\u4e2d\n    errorTip?: string; // \u9519\u8bef\u63d0\u793a\n    name?: string; // \u56fe\u7247\u540d\u79f0\n    [index: string]: any;\n  }\n\n  // \u6570\u7ec4\u6539\u53d8\n  const onChange = (arr: Array<Files>) => {\n    console.log('onChange', arr);\n    setFilesList(arr);\n  };\n\n  // \u5b9e\u65f6\u4e0a\u4f20\u65b9\u6cd5\n  const onUpload = item => {\n    console.log('item', item);\n    return new Promise((resolve, reject) => {\n      const rate = Math.random();\n      setTimeout(() => {\n        if (rate > 0.3) {\n          // \u6210\u529f\n          return resolve({ fssid: rate.toString().slice(-6) });\n        }\n        reject('\u4e0a\u4f20\u5931\u8d25');\n      }, 3000);\n    });\n  };\n\n  // \u67e5\u770b\u5927\u56fe\u65b9\u6cd5\n  const onGetPreviewUrl = index => {\n    return new Promise((resolve, reject) => {\n      Toast.loading('Loading...');\n      setTimeout(() => {\n        Toast.hide();\n        resolve(filesList[index].url);\n      }, 1000);\n    });\n  };\n\n  return (\n    <ImagePicker\n      filesList={filesList}\n      onChange={onChange}\n      multiple\n      max={12}\n      mode=\"cover\"\n      onUpload={onUpload}\n      resize\n      width=\"22%\"\n      onGetPreviewUrl={onGetPreviewUrl}\n    />\n  );\n};",
             },
           },
           dependencies: {
@@ -1123,7 +1121,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.1' },
-            'image-picker-mobile': { version: '1.0.5' },
+            'image-picker-mobile': { version: '1.0.6' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-demo-3',
@@ -1964,7 +1962,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/image-picker/index.md',
-                updatedTime: 1609830654e3,
+                updatedTime: 1609833179e3,
                 componentName: 'image-picker',
                 group: {
                   title: 'ImagePicker \u56fe\u7247\u9009\u62e9\u5668',

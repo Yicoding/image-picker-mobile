@@ -284,7 +284,6 @@ export default () => {
   // 数组改变
   const onChange = (arr: Array<Files>) => {
     console.log('onChange', arr);
-    arr.forEach((item, index) => (item.name = `示例图${index}`));
     setFilesList(arr);
   };
 
@@ -306,7 +305,6 @@ export default () => {
   // 查看大图方法
   const onGetPreviewUrl = index => {
     return new Promise((resolve, reject) => {
-      const rate = Math.random();
       Toast.loading('Loading...');
       setTimeout(() => {
         Toast.hide();

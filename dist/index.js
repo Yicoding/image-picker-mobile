@@ -216,7 +216,7 @@ var styles = styles$1.createStyles({
     margin: '0 8px 8px 0',
   },
   noMargin: {
-    margin: 0,
+    margin: '0 0 8px 0',
   },
   name: {
     textAlign: 'center',
