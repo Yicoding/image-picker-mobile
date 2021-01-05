@@ -9,7 +9,7 @@ import styles from './styles';
 const noon = () => {};
 
 interface Files {
-  url: string; // 图片url
+  url?: string; // 图片url
   preview?: string; // 预览图
   loading?: boolean; // 图片是否加载中
   errorTip?: string; // 错误提示
