@@ -20,7 +20,7 @@ interface Files {
 interface ImagePickerProps {
   filesList: Array<Files>; // 图片列表
   max?: number; // 图片最大个数
-  onChange?: (arr: Array<Files>) => any; // 图片列表改变
+  onChange?: (arr: Array<Files>) => void; // 图片列表改变
   onUpload?: (file: any) => Promise<object | undefined>; // 图片上传方法
   accept?: string; // 选择的图片类型
   multiple?: boolean; // 是否多选
