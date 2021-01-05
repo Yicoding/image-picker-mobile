@@ -1,6 +1,6 @@
 {
   "name": "image-picker-mobile",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "基于react的移动端图片上传组件",
   "scripts": {
     "start": "dumi dev",
