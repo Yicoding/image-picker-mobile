@@ -14,7 +14,7 @@ import { WhiteSpace, Flex, WingBlank } from 'antd-mobile';
 import ImagePicker from 'image-picker-mobile';
 
 interface Files {
-  url?: string; // 图片url
+  url: string; // 图片url
   preview?: string; // 预览图
   loading?: boolean; // 图片是否加载中
   errorTip?: string; // 错误提示
@@ -82,7 +82,7 @@ import React, { useState } from 'react';
 import ImagePicker from 'image-picker-mobile';
 
 interface Files {
-  url?: string; // 图片url
+  url: string; // 图片url
   preview?: string; // 预览图
   loading?: boolean; // 图片是否加载中
   errorTip?: string; // 错误提示
@@ -176,7 +176,7 @@ const styles = createUseStyles({
 });
 
 interface Files {
-  url?: string; // 图片url
+  url: string; // 图片url
   preview?: string; // 预览图
   loading?: boolean; // 图片是否加载中
   errorTip?: string; // 错误提示
@@ -188,10 +188,10 @@ export default () => {
   const s = styles();
 
   const [idCard, setIdCard] = useState<Array<Files>>([
-    { name: '身份证人像面' },
+    { name: '身份证人像面', url: '' },
   ]);
   const [idCardBack, setIdCardBack] = useState<Array<Files>>([
-    { name: '身份证国徽面' },
+    { name: '身份证国徽面', url: '' },
   ]);
 
   // 实时上传方法
@@ -212,7 +212,7 @@ export default () => {
   const onChangeIdCard = (arr: Array<Files>) => {
     console.log('onChange', arr);
     if (arr.length === 0) {
-      arr.push({});
+      arr.push({ url: '' });
     }
     arr.forEach((item, index) => (item.name = '身份证人像面'));
     setIdCard(arr);
@@ -222,7 +222,7 @@ export default () => {
   const onChangeIdCardBack = (arr: Array<Files>) => {
     console.log('onChange', arr);
     if (arr.length === 0) {
-      arr.push({});
+      arr.push({ url: '' });
     }
     arr.forEach((item, index) => (item.name = '身份证国徽面'));
     setIdCardBack(arr);
@@ -274,7 +274,7 @@ import { Toast } from 'antd-mobile';
 import ImagePicker from 'image-picker-mobile';
 
 interface Files {
-  url?: string; // 图片url
+  url: string; // 图片url
   preview?: string; // 预览图
   loading?: boolean; // 图片是否加载中
   errorTip?: string; // 错误提示
@@ -337,21 +337,21 @@ export default () => {
 
 ### ImagePicker
 
-| 属性            | 说明                                                                                                                                                                                 | 类型                                    | 默认值          |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- | --------------- |
-| filesList       | 图片文件数组,元素为对象,包含属性 `url`: 图片路径, `preview`: 图片预览图, `loading`: 图片加载状态, `errorTip`: 图片加载失败提示文案,`name`: 图片底部显示的名称;以及业务需要的其它属性 | `Array`                                 | `[]`            |
-| max             | 最大上传文件数量                                                                                                                                                                     | `number`                                | `1`             |
-| onChange        | files 值发生变化触发的回调函数                                                                                                                                                       | `(arr: Array<Files>) => any`            | -               |
-| onUpload        | 图片实时上传方法                                                                                                                                                                     | `(file) => Promise<object | undefined>` | -               |
-| onGetPreviewUrl | 获取预览图片方法                                                                                                                                                                     | `(index: number) => Promise<string>`    | -               |
-| accept          | 图片类型                                                                                                                                                                             | `string`                                | `image/*`       |
-| multiple        | 是否多选                                                                                                                                                                             | `boolean`                               | `false`         |
-| resize          | 高度是否根据宽度计算,为`true`时，`width`需要填写百分比                                                                                                                               | `boolean`                               | `false`         |
-| width           | 图片宽度                                                                                                                                                                             | `string`                                | `80px`          |
-| height          | 图片高度                                                                                                                                                                             | `string`                                | `80px`          |
-| config          | 图片的额外扩展项,`defaultBorder`: 显示实线边框, `defaultBackGround`: 显示默认背景色, `defaultDashed`: 显示虚线边框                                                                   | `string[]`                              | `defaultBorder` |
-| children        | 选择图片元素                                                                                                                                                                         | `React.ReactNode`                       | `default`       |
-| disabledPreview | 是否禁用预览图片                                                                                                                                                                     | `boolean`                               | `false`         |
-| mode            | 图片裁切类型(同 css 中`object-fit`属性), `fill`, `cover`, `contain`, `scale-down`                                                                                                    | `string`                                | `fill`          |
-| size            | 单个图片限制大小，单位 M                                                                                                                                                             | `number`                                | -               |
-| onFail          | 图片选择失败                                                                                                                                                                         | `(msg: string): void`                   | -               |
+| 属性            | 说明                                                                                                                                                                                       | 类型                                    | 默认值          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- | --------------- |
+| filesList       | 图片文件数组,元素为对象,包含属性 `url`: 图片路径(必填), `preview`: 图片预览图, `loading`: 图片加载状态, `errorTip`: 图片加载失败提示文案,`name`: 图片底部显示的名称;以及业务需要的其它属性 | `Array`                                 | `[]`            |
+| max             | 最大上传文件数量                                                                                                                                                                           | `number`                                | `1`             |
+| onChange        | files 值发生变化触发的回调函数                                                                                                                                                             | `(arr: Array<Files>) => any`            | -               |
+| onUpload        | 图片实时上传方法                                                                                                                                                                           | `(file) => Promise<object | undefined>` | -               |
+| onGetPreviewUrl | 获取预览图片方法                                                                                                                                                                           | `(index: number) => Promise<string>`    | -               |
+| accept          | 图片类型                                                                                                                                                                                   | `string`                                | `image/*`       |
+| multiple        | 是否多选                                                                                                                                                                                   | `boolean`                               | `false`         |
+| resize          | 高度是否根据宽度计算,为`true`时，`width`需要填写百分比                                                                                                                                     | `boolean`                               | `false`         |
+| width           | 图片宽度                                                                                                                                                                                   | `string`                                | `80px`          |
+| height          | 图片高度                                                                                                                                                                                   | `string`                                | `80px`          |
+| config          | 图片的额外扩展项,`defaultBorder`: 显示实线边框, `defaultBackGround`: 显示默认背景色, `defaultDashed`: 显示虚线边框                                                                         | `string[]`                              | `defaultBorder` |
+| children        | 选择图片元素                                                                                                                                                                               | `React.ReactNode`                       | `default`       |
+| disabledPreview | 是否禁用预览图片                                                                                                                                                                           | `boolean`                               | `false`         |
+| mode            | 图片裁切类型(同 css 中`object-fit`属性), `fill`, `cover`, `contain`, `scale-down`                                                                                                          | `string`                                | `fill`          |
+| size            | 单个图片限制大小，单位 M                                                                                                                                                                   | `number`                                | -               |
+| onFail          | 图片选择失败                                                                                                                                                                               | `(msg: string): void`                   | -               |
