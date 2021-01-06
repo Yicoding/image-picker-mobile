@@ -7,19 +7,19 @@ group:
 
 ## 基本用法
 
-<code src="./demo/base.tsx"></code>
+<code src="./demo/base.tsx" />
 
 ## 多选+实时上传
 
-<code src="./demo/onUpload.tsx"></code>
+<code src="./demo/onUpload.tsx" />
 
 ## 自定义选择器(子组件)
 
-<code src="./demo/idCard.tsx"></code>
+<code src="./demo/idCard.tsx" />
 
 ## 多选+高度与宽度相等+预览图
 
-<code src="./demo/resize.tsx"></code>
+<code src="./demo/resize.tsx" />
 
 ## API
 

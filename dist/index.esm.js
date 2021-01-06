@@ -282,10 +282,10 @@ var styles = createStyles({
 var noon = function noon() {};
 
 var ImagePicker = function ImagePicker(props) {
-  var _props$filesList = props.filesList,
-    filesList = _props$filesList === void 0 ? [] : _props$filesList,
-    _props$classes = props.classes,
+  var _props$classes = props.classes,
     s = _props$classes === void 0 ? {} : _props$classes,
+    _props$filesList = props.filesList,
+    filesList = _props$filesList === void 0 ? [] : _props$filesList,
     _props$max = props.max,
     max = _props$max === void 0 ? 1 : _props$max,
     _props$onChange = props.onChange,

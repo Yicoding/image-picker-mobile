@@ -35,13 +35,12 @@ interface ImagePickerProps {
   disabledPreview?: boolean; // 是否禁用预览图片
   onGetPreviewUrl?: (index: number) => Promise<string>; // 获取预览图片方法
   classes?: Partial<ClassKeysOfStyles<typeof styles>>;
-  // classes?: Record<'root' | 'input' | 'imgBox', any>
 }
 
 const ImagePicker = (props: ImagePickerProps) => {
   const {
-    filesList = [],
     classes: s = {},
+    filesList = [],
     max = 1,
     onChange = noon,
     accept = 'image/*',

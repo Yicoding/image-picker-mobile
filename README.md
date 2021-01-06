@@ -18,6 +18,12 @@ npm install image-picker-mobile --save
 yarn add image-picker-mobile
 ```
 
+<br />
+
+```shell
+import ImagePicker from 'image-picker-mobile';
+```
+
 [site]: https://yicoding.github.io/image-picker-mobile
 [doly]: https://www.npmjs.com/package/doly-cli
 [umi]: https://umijs.org/zh-CN
