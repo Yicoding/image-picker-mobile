@@ -824,7 +824,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.1' },
-            'image-picker-mobile': { version: '1.0.11' },
+            'image-picker-mobile': { version: '1.0.13' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-base',
@@ -881,7 +881,7 @@
           },
           dependencies: {
             react: { version: '17.0.1' },
-            'image-picker-mobile': { version: '1.0.11' },
+            'image-picker-mobile': { version: '1.0.13' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-onupload',
@@ -943,7 +943,7 @@
             },
             react: { version: '>=16.8.0' },
             '@wonder-ui/styles': { version: '2.0.0-beta.9' },
-            'image-picker-mobile': { version: '1.0.11' },
+            'image-picker-mobile': { version: '1.0.13' },
           },
           componentName: 'image-picker',
           compact: !0,
@@ -1005,7 +1005,7 @@
               css: 'antd-mobile/dist/antd-mobile.css',
             },
             react: { version: '17.0.1' },
-            'image-picker-mobile': { version: '1.0.11' },
+            'image-picker-mobile': { version: '1.0.13' },
           },
           componentName: 'image-picker',
           identifier: 'image-picker-resize',
@@ -1428,7 +1428,7 @@
                     r.a.createElement(
                       'code',
                       null,
-                      '(arr: Array<Files>) => any',
+                      '(arr: Array<Files>) => void',
                     ),
                   ),
                   r.a.createElement('td', null, '-'),
@@ -1676,7 +1676,7 @@
                   r.a.createElement(
                     'td',
                     null,
-                    r.a.createElement('code', null, '(msg: string): void'),
+                    r.a.createElement('code', null, '(msg: string)=> void'),
                   ),
                   r.a.createElement('td', null, '-'),
                 ),
@@ -1926,7 +1926,7 @@
               exact: !0,
               meta: {
                 filePath: 'src/image-picker/index.md',
-                updatedTime: 1609841905e3,
+                updatedTime: 1609899317e3,
                 componentName: 'image-picker',
                 group: {
                   title: 'ImagePicker \u56fe\u7247\u9009\u62e9\u5668',
